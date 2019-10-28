@@ -22,6 +22,7 @@ toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 myConfig = defaultConfig 
   { modMask = mod4Mask
   , borderWidth = 0
+  , startupHook = setWMName "LG3D" 
   } `additionalKeysP` myKeys
 
 myKeys =  [ ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +1.5%")
