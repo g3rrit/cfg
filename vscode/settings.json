@@ -1,0 +1,37 @@
+{
+    "workbench.colorTheme": "vspearc",
+    "git.confirmSync": true,
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    
+    "editor.lineNumbers": "relative",
+    "editor.cursorStyle": "block",
+    "editor.tabSize": 4,
+    "editor.detectIndentation": true,
+
+    "[c]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4,
+        "editor.lineNumbers": "relative",
+        "editor.cursorStyle": "block"
+    },
+
+    "[cpp]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4,
+        "editor.lineNumbers": "relative",
+        "editor.cursorStyle": "block"
+    },
+
+    "[python]": {
+        "editor.lineNumbers": "relative",
+        "editor.cursorStyle": "block"
+    },
+
+    "[haskell]": {
+        "editor.lineNumbers": "relative",
+        "editor.cursorStyle": "block"
+    },
+}
