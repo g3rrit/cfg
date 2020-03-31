@@ -5,19 +5,19 @@ general {
 }
 
 order += "ipv6"
-order += "disk /"
-order += "run_watch DHCP"
-order += "run_watch VPNC"
-order += "path_exists VPN"
-order += "wireless wlan0"
+order += "wireless wlp1s0"
 order += "ethernet eth0"
+order += "disk /"
+# order += "run_watch DHCP"
+# order += "run_watch VPNC"
+# order += "path_exists VPN"
 order += "battery 0"
 order += "cpu_temperature 0"
 order += "load"
 order += "tztime local"
 order += "tztime berlin"
 
-wireless wlan0 {
+wireless wlp1s0 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: down"
 }
