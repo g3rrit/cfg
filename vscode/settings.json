@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "vspearc",
-    "git.confirmSync": true,
+    "git.confirmSync": false,
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
     
@@ -34,4 +34,10 @@
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
     },
+
+    "[ocaml]": {
+        "editor.lineNumbers": "relative",
+        "editor.cursorStyle": "block"
+    },
+    "editor.fontSize": 16,
 }
