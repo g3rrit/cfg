@@ -11,7 +11,6 @@
 
     "[c]": {
         "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
         "editor.tabSize": 4,
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
@@ -39,5 +38,5 @@
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
     },
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
 }
