@@ -1,5 +1,6 @@
 {
     "workbench.colorTheme": "vspearc",
+    "editor.fontFamily": "Fira Code",
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
@@ -39,4 +40,5 @@
         "editor.cursorStyle": "block"
     },
     "editor.fontSize": 14,
+    "terminal.integrated.fontFamily": "monospace",
 }
