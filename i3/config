@@ -183,21 +183,6 @@ new_window 1pixel
 # finds out, if available)
 bar {
         output HDMI-0
-        status_command i3status
-        position top	
-        font pango: DejaVu Sans Mono 12
-        separator_symbol "|"
-
-        colors {
-            #color class       border  back.   text
-            focused_workspace  #79c7bc #09655c #ffffff
-            active_workspace   #555555 #555555 #ffffff
-            inactive_workspace #000000 #000000 #ffffff
-            urgent_workspace   #2f343a #900000 #ffffff
-        }
-}
-
-bar {
         output DP-0
         status_command i3status
         position top	
@@ -211,7 +196,6 @@ bar {
             inactive_workspace #000000 #000000 #ffffff
             urgent_workspace   #2f343a #900000 #ffffff
         }
-
 }
 
 #colors:                border  backgr. text    indicator
