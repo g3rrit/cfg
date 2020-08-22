@@ -10,6 +10,8 @@
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
 
+    "terminal.integrated.scrollback": 3000,
+
     "[c]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
@@ -19,7 +21,7 @@
 
     "[cpp]": {
         "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
+        "editor.insertSpaces": true,
         "editor.tabSize": 4,
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
@@ -41,4 +43,5 @@
     },
     "editor.fontSize": 14,
     "terminal.integrated.fontFamily": "monospace",
+    "latex-workshop.view.pdf.viewer": "tab",
 }
