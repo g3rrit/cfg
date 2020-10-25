@@ -1,5 +1,7 @@
 {
-    "workbench.colorTheme": "vspearc",
+    "telemetry.enableTelemetry": false,
+    "keyboard.dispatch": "keyCode",
+
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
@@ -39,5 +41,7 @@
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
     },
+
     "editor.fontSize": 16,
+    "workbench.colorTheme": "Monokai",
 }

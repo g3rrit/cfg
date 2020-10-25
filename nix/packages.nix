@@ -12,6 +12,10 @@
     evince
     feh
     opam
+    gcc
+    cmake
+    m4
+    pkg-config    
   ];
 }
 
