@@ -10,6 +10,8 @@
     vscode
     discord
     evince
+    feh
+    opam
   ];
 }
 
