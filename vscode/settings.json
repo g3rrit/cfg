@@ -2,8 +2,12 @@
     "telemetry.enableTelemetry": false,
     "keyboard.dispatch": "keyCode",
 
+    "ocaml.merlinPath": "/home/pear/.opam/4.10.0/bin/ocamlmerlin",
+    "reason.path.ocamlmerlin": "/home/pear/.opam/4.10.0/bin/ocamlmerlin",
+
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
+    "editor.fontFamily": "monospace",
     "window.zoomLevel": 0,
     
     "editor.lineNumbers": "relative",

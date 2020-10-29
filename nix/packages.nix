@@ -12,7 +12,8 @@
     evince
     feh
     opam
-    gcc
+    gcc10
+    gnumake
     cmake
     m4
     pkg-config    
