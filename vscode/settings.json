@@ -7,17 +7,24 @@
 
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "monospace",
+    "editor.fontFamily": "Source Code Variable",
     "window.zoomLevel": 0,
     
     "editor.lineNumbers": "relative",
     "editor.cursorStyle": "block",
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
+    "editor.renderWhitespace": "all",
+    "editor.rulers" : [120],
+
+    "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "none",
+    
 
     "[c]": {
         "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
+        "editor.insertSpaces": true,
         "editor.tabSize": 4,
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
@@ -25,7 +32,7 @@
 
     "[cpp]": {
         "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
+        "editor.insertSpaces": true,
         "editor.tabSize": 4,
         "editor.lineNumbers": "relative",
         "editor.cursorStyle": "block"
@@ -46,6 +53,6 @@
         "editor.cursorStyle": "block"
     },
 
-    "editor.fontSize": 16,
-    "workbench.colorTheme": "Monokai",
+    "editor.fontSize": 15,
+    "workbench.colorTheme": "Solarized Dark",
 }
