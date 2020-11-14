@@ -183,7 +183,7 @@ new_window 1pixel
 bar {
         status_command i3status
         position top	
-        output primary
-        font pango: DejaVu Sans Mono 12
+        output HDMI-A-1
+        font pango: monospace
         separator_symbol "|"
 }
