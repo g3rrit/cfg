@@ -1,6 +1,6 @@
 [user]
-	name = proessl
-	email = gerrit.proessl@rohde-schwarz.com
+	email = gerrit.proessl@gmail.com
+	name = Gerrit Proessl
 
 [alias]
 	br  = branch
@@ -17,3 +17,5 @@
 	cb  = ! git branch | fzf | xargs git checkout
 
 	
+[pull]
+	rebase = true
