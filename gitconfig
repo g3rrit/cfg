@@ -1,6 +1,6 @@
-[user]
-	email = gerrit.proessl@gmail.com
-	name = Gerrit Proessl
+# include this file in your ~/.gitconfig with:
+# [include]
+# 	path = /usr/local/dotfiles/gitconfig
 
 [alias]
 	br  = branch
@@ -15,6 +15,8 @@
 	st = status -sb
 
 	cb  = ! git branch | fzf | xargs git checkout
+
+    recommit = commit --reedit-message=HEAD@{1}
 
 	
 [pull]

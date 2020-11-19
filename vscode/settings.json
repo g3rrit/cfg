@@ -55,4 +55,5 @@
 
     "editor.fontSize": 15,
     "workbench.colorTheme": "Solarized Dark",
+    "latex-workshop.view.pdf.viewer": "tab",
 }
