@@ -4,19 +4,20 @@
 
 [alias]
 	br  = branch
-	co  = checkout       # Checkout a branch
-	cob = checkout -b    # Checkout a new not yet existing branch
-	f   = fetch -p       # Fetch from a repository and prune any remote-tracking references that no longer exist on the remote.
-	c   = commit         # Commit you changes
-	p   = push           # Push you changes to a remote
-	ba  = branch -a      # List both remote-tracking branches and local branches.
-	dc  = diff --cached  # Display the staged changes
+	co  = checkout                             # Checkout a branch
+	cob = checkout -b                          # Checkout a new not yet existing branch
+	f   = fetch -p                             # Fetch from a repository and prune any remote-tracking references that no longer exist on the remote.
+	c   = commit                               # Commit you changes
+	p   = push                                 # Push you changes to a remote
+	ba  = branch -a                            # List both remote-tracking branches and local branches.
+	dc  = diff --cached                        # Display the staged changes
+	ca  = commit --amend --date=now            # Ammend commit with new date
 
 	st = status -sb
 
 	cb  = ! git branch | fzf | xargs git checkout
 
-    recommit = commit --reedit-message=HEAD@{1}
+	recommit = commit --reedit-message=HEAD --date=now
 
 	
 [pull]
