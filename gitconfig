@@ -19,7 +19,7 @@
 
 	recommit = commit --reedit-message=HEAD --date=now
 
-	rmgone = "!git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
+	rmgone = "! sh /usr/local/dotfiles/scripts/git_rm_gone"
 	
 [pull]
 	rebase = true

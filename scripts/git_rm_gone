@@ -1,0 +1,12 @@
+#!/bin/sh
+
+git fetch --all -p &&
+git checkout master &&
+for r in $(git for-each-ref refs/heads --format='%(refname:short)')
+do
+  if [ "$r" != "master"  ] && [ $(git show-ref "$r" | wc -l) -eq 1 ]
+  then
+    git branch -D "$r"
+  fi
+done
+
