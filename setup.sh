@@ -31,6 +31,13 @@ function link_file {
 }
 
 link_file vimrc /home/${USR}/.vimrc
+link_file gdbinit /home/${USR}/.gdbinit
+link_file tmux.conf /home/${USR}/.tmux.conf
+link_file xinitrc /home/${USR}/.xinitrc
 
 echo "source ${DIR}/bash_aliaes" >> "/home/${USR}/.bashrc"
 echo "source ${DIR}/bash_env" >> "/home/${USR}/.bashrc"
+
+echo "[include]" >> "/home/${USR}/.gitconfig"
+echo "  path = ${DIR}/gitconfig" >> "/home/${USR}/.gitconfig"
+
