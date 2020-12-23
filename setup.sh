@@ -31,3 +31,6 @@ function link_file {
 }
 
 link_file vimrc /home/${USR}/.vimrc
+
+echo "source ${DIR}/bash_aliaes" >> "/home/${USR}/.bashrc"
+echo "source ${DIR}/bash_env" >> "/home/${USR}/.bashrc"
