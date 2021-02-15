@@ -1,6 +1,6 @@
 # include this file in your ~/.gitconfig with:
 # [include]
-# 	path = /usr/local/dotfiles/gitconfig
+# 	path = /usr/local/conf/gitconfig
 
 [alias]
 	br  = branch
@@ -19,7 +19,7 @@
 
 	recommit = commit --reedit-message=HEAD --date=now
 
-	rmgone = "! sh /usr/local/dotfiles/scripts/git_rm_gone"
+	rmgone = "! sh /usr/local/conf/scripts/git_rm_gone"
 	
 [pull]
 	rebase = true

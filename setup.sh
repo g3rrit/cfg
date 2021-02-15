@@ -6,8 +6,8 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-if [[ $DIR != "/usr/local/dotfiles" ]]; then
-  echo "Repository in wrong directory [${DIR}] please use /usr/local/dotfiles"
+if [[ $DIR != "/usr/local/conf" ]]; then
+  echo "Repository in wrong directory [${DIR}] please use /usr/local/conf"
   exit
 fi
 
@@ -35,7 +35,7 @@ link_file gdbinit /home/${USR}/.gdbinit
 link_file tmux.conf /home/${USR}/.tmux.conf
 link_file xinitrc /home/${USR}/.xinitrc
 
-echo "source ${DIR}/bash_aliaes" >> "/home/${USR}/.bashrc"
+echo "source ${DIR}/bash_aliases" >> "/home/${USR}/.bashrc"
 echo "source ${DIR}/bash_env" >> "/home/${USR}/.bashrc"
 
 echo "[include]" >> "/home/${USR}/.gitconfig"
