@@ -56,4 +56,5 @@
     "editor.fontSize": 15,
     "latex-workshop.view.pdf.viewer": "tab",
     "workbench.colorTheme": "Solarized Dark",
+    "cmake.configureOnOpen": true,
 }
