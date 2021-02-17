@@ -8,14 +8,17 @@
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
     "editor.fontFamily": "Source Code Variable",
-    "window.zoomLevel": 0,
     
     "editor.lineNumbers": "relative",
-    "editor.cursorStyle": "block",
+    "editor.cursorStyle": "line",
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
     "editor.renderWhitespace": "all",
     "editor.rulers" : [120],
+
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.visualblock": "block-outline",
 
     "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
     "C_Cpp.clang_format_style": "file",
@@ -27,7 +30,6 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
         "editor.lineNumbers": "relative",
-        "editor.cursorStyle": "block"
     },
 
     "[cpp]": {
@@ -35,26 +37,25 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
         "editor.lineNumbers": "relative",
-        "editor.cursorStyle": "block"
     },
 
     "[python]": {
         "editor.lineNumbers": "relative",
-        "editor.cursorStyle": "block"
     },
 
     "[haskell]": {
         "editor.lineNumbers": "relative",
-        "editor.cursorStyle": "block"
     },
 
     "[ocaml]": {
         "editor.lineNumbers": "relative",
-        "editor.cursorStyle": "block"
     },
 
     "editor.fontSize": 15,
     "latex-workshop.view.pdf.viewer": "tab",
     "workbench.colorTheme": "Solarized Dark",
     "cmake.configureOnOpen": true,
+
+    "bookmarks.saveBookmarksInProject": false,
+    "bookmarks.navigateThroughAllFiles": true,
 }
