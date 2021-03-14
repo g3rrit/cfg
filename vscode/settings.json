@@ -55,5 +55,6 @@
 
     "editor.fontSize": 15,
     "latex-workshop.view.pdf.viewer": "tab",
-    "workbench.colorTheme": "vspearc",
+    "workbench.colorTheme": "GDScript",
+    "cmake.configureOnOpen": true,
 }
