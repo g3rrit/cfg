@@ -53,9 +53,15 @@
 
     "editor.fontSize": 15,
     "latex-workshop.view.pdf.viewer": "tab",
-    "workbench.colorTheme": "Solarized Dark",
     "cmake.configureOnOpen": true,
 
     "bookmarks.saveBookmarksInProject": false,
     "bookmarks.navigateThroughAllFiles": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.colorTheme": "Solarized Light",
 }

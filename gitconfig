@@ -20,6 +20,14 @@
 	recommit = commit --reedit-message=HEAD --date=now
 
 	rmgone = "! sh /usr/local/conf/scripts/git_rm_gone"
+
+    mdiff = difftool -t meld --dir-diff
+
+    ph = push origin HEAD
+
+    pwip = push origin HEAD:refs/for/master%topic=WIP
+    prev = push origin HEAD:refs/for/master%topic=REV
+
 	
 [pull]
 	rebase = true

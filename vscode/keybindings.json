@@ -64,4 +64,15 @@
         "command": "-editor.action.removeCommentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
+
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus & !editorHasSelection"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatSelection",
+        "when": "editorTextFocus && editorHasSelection"
+    }
 ]
