@@ -15,7 +15,7 @@
     last = log -1
     st = status -sb
     diffs = diff --staged
-    rmc = rm --chached
+    rmc = rm -r --cached
 
     lp = log --pretty=format:"%h - %an, %ar : %s" --graph
 
