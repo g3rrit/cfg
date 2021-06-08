@@ -1,25 +1,40 @@
 # include this file in your ~/.gitconfig with:
 # [include]
-# 	path = /usr/local/dotfiles/gitconfig
+#   path = /usr/local/conf/gitconfig
 
 [alias]
-	br  = branch
-	co  = checkout                             # Checkout a branch
-	cob = checkout -b                          # Checkout a new not yet existing branch
-	f   = fetch -p                             # Fetch from a repository and prune any remote-tracking references that no longer exist on the remote.
-	c   = commit                               # Commit you changes
-	p   = push                                 # Push you changes to a remote
-	ba  = branch -a                            # List both remote-tracking branches and local branches.
-	dc  = diff --cached                        # Display the staged changes
-	ca  = commit --amend --date=now            # Ammend commit with new date
+    br  = branch
+    co  = checkout                             # Checkout a branch
+    cob = checkout -b                          # Checkout a new not yet existing branch
+    f   = fetch -p                             # Fetch from a repository and prune any remote-tracking references that no longer exist on the remote.
+    c   = commit                               # Commit you changes
+    p   = push                                 # Push you changes to a remote
+    ba  = branch -a                            # List both remote-tracking branches and local branches.
+    dc  = diff --cached                        # Display the staged changes
+    ca  = commit --amend --date=now            # Ammend commit with new date
+    last = log -1
+    st = status -sb
+    diffs = diff --staged
+    rmc = rm -r --cached
 
-	st = status -sb
+    lp = log --pretty=format:"%h - %an, %ar : %s" --graph
 
-	cb  = ! git branch | fzf | xargs git checkout
+    cb  = ! git branch | fzf | xargs git checkout
 
-	recommit = commit --reedit-message=HEAD --date=now
+    recommit = commit --reedit-message=HEAD --date=now
 
-	rmgone = "! sh /usr/local/dotfiles/scripts/git_rm_gone"
-	
+    rmgone = "! sh /usr/local/conf/scripts/git_rm_gone"
+
+    mdiff = difftool -t meld --dir-diff
+
+    ph = push origin HEAD
+
+    pgr = "!f() {\
+             [[ -z $1 ]] && { echo "Specify branch"; exit -1; };\
+             [[ -z $2 ]] && { echo "Specify topic"; exit -1; };\
+             [[ ! $2 =~ "REV|WIP" ]] && { echo "Invalid topic [$2]"; exit -1; };\
+             git push origin HEAD:refs/for/$1%topic=$2;\
+           }; f"
+
 [pull]
-	rebase = true
+    rebase = true

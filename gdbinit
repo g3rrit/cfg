@@ -2270,6 +2270,8 @@ set print array off
 set print array-indexes on
 set python print-stack full
 
+source /home/proessl/.gdb/pace.gdb
+
 # Start ------------------------------------------------------------------------
 
 python Dashboard.start()

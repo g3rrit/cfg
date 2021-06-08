@@ -1,0 +1,19 @@
+#!/bin/bash
+
+CHANGED_FILES="$(git diff --name-only --diff-filter=ACMRT HEAD^ | grep '\.[ch]$')"
+RET_VAL=0
+
+for file in ${CHANGED_FILES}
+do
+    diff <(cat ${file}) <(clang-format ${file})
+    if [ $? -ne 0 ]
+    then
+        echo ""
+        echo "Clang format error in File: ${file}"
+        echo "------------------------------"
+        RET_VAL=1
+    fi
+
+done
+
+exit "${RET_VAL}"

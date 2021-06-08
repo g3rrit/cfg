@@ -9,6 +9,7 @@
         "key": "alt+j",
         "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"
     },
+
     {
         "key": "ctrl+h",
         "command": "workbench.action.navigateLeft"
@@ -25,8 +26,53 @@
         "key": "ctrl+j",
         "command": "workbench.action.navigateDown"
     },
+
     {
         "key": "ctrl+w",
         "command": "workbench.action.closeActiveEditor"
     },
+
+    {
+        "key": "ctrl+q",
+        "command": ""
+    },
+    {
+        "key": "ctrl+q b",
+        "command": "bookmarks.toggleLabeled"
+    },
+    {
+        "key": "ctrl+b l",
+        "command": "bookmarks.list"
+    },
+   {
+        "key": "ctrl+shift+a",
+        "command": "-editor.action.blockComment",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+q c",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+q x",
+        "command": "editor.action.removeCommentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k ctrl+u",
+        "command": "-editor.action.removeCommentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus & !editorHasSelection"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatSelection",
+        "when": "editorTextFocus && editorHasSelection"
+    }
 ]

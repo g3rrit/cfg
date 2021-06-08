@@ -32,7 +32,9 @@ set encoding=utf-8
 
 " Whitespace
 set wrap
-set textwidth=79
+set textwidth=80
+set wrapmargin=0
+set colorcolumn=81 " highlight column
 set formatoptions=tcqrn1
 set tabstop=4
 set shiftwidth=4
@@ -93,4 +95,9 @@ set listchars=tab:▸\ ,eol:¬
 " set list " To enable by default
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+autocmd BufReadPost *.[ch] let b:commentType='//' "C files
+autocmd BufReadPost *.pl let b:commentType='#'    "Perl files
+
+
 
