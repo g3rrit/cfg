@@ -14,6 +14,8 @@ fi
 USR=${1:?No User specified}
 echo "Running setup for: ${USR}"
 
+UPDATE_STR="[conf]added"
+
 mkdir -p /home/${USR}/.bak
 
 function link_file {
@@ -34,10 +36,28 @@ link_file vimrc /home/${USR}/.vimrc
 link_file gdbinit /home/${USR}/.gdbinit
 link_file tmux.conf /home/${USR}/.tmux.conf
 link_file xinitrc /home/${USR}/.xinitrc
+link_file i3/config /home/${USR}/.config/i3/config
+link_file i3status/config /home/${USR}/.config/i3status/config
+link_file clang-format /home/${USR}/.clang-format
 
-echo "source ${DIR}/bash_aliases" >> "/home/${USR}/.bashrc"
-echo "source ${DIR}/bash_env" >> "/home/${USR}/.bashrc"
+FILE_BASHRC="/home/${USR}/.bashrc"
+FILE_GITCONFIG="/home/${USR}/.gitconfig"
 
-echo "[include]" >> "/home/${USR}/.gitconfig"
-echo "  path = ${DIR}/gitconfig" >> "/home/${USR}/.gitconfig"
+if ! [[ grep -q "${UPDATE_STR}" ${FILE_BASHRC} ]]; then
+
+	echo "Updating bashrc [${FILE_BASHRC}]"
+
+	echo "source ${DIR}/bash_aliases" >> ${FILE_BASHRC}
+	echo "source ${DIR}/bash_env" >> ${FILE_BASHRC}
+	echo "#${UPDATE_STR}" >> ${FILE_BASHRC}
+fi
+
+if ! [[ grep -q "${UPDATE_STR}" ${FILE_GITCONFIG} ]]; then
+
+	echo "Updating gitconfig [${FILE_GITCONFIG}"
+
+	echo "[include]" >> ${FILE_GITCONFIG}
+	echo "  path = ${DIR}/gitconfig" >> ${FILE_GITCONFIG}
+	echo "#${UPDATE_STR}" >> ${FILE_GITCONFIG}
+fi
 
