@@ -93,6 +93,7 @@ link_file gdbinit /home/${USR}/.gdbinit
 link_file tmux.conf /home/${USR}/.tmux.conf
 link_file xinitrc /home/${USR}/.xinitrc
 link_file i3/config /home/${USR}/.config/i3/config
+link_file i3/app-icons.json /home/${USR}/.config/i3/app-icons.json
 link_file i3status/config /home/${USR}/.config/i3status/config
 link_file clang-format /home/${USR}/.clang-format
 
