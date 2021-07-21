@@ -12,6 +12,7 @@
     ba  = branch -a                            # List both remote-tracking branches and local branches.
     dc  = diff --cached                        # Display the staged changes
     ca  = commit --amend --date=now            # Ammend commit with new date
+    rb  = rebase
     last = log -1
     st = status -sb
     diffs = diff --staged
