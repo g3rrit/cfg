@@ -9,7 +9,7 @@
     "editor.minimap.enabled": false,
     "editor.fontFamily": "Source Code Variable",
     
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "on",
     "editor.cursorStyle": "line",
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
@@ -20,10 +20,11 @@
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.visualblock": "block-outline",
 
-    "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
+    "C_Cpp.clang_format_path": "/usr/local/conf/clang-format",
     "C_Cpp.clang_format_style": "file",
     "C_Cpp.clang_format_fallbackStyle": "none",
-    
+
+    "html.autoClosingTags": false,
 
     "[c]": {
         "editor.detectIndentation": false,
@@ -57,11 +58,15 @@
 
     "bookmarks.saveBookmarksInProject": false,
     "bookmarks.navigateThroughAllFiles": true,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "workbench.colorTheme": "Solarized Light",
+    "editor.insertSpaces": true,
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
 }
