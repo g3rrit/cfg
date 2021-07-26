@@ -28,7 +28,7 @@
     },
 
     {
-        "key": "ctrl+w",
+        "key": "ctrl+x",
         "command": "workbench.action.closeActiveEditor"
     },
 
