@@ -4,14 +4,14 @@
 
 [alias]
     br  = branch
-    co  = checkout                             # Checkout a branch
-    cob = checkout -b                          # Checkout a new not yet existing branch
-    f   = fetch -p                             # Fetch from a repository and prune any remote-tracking references that no longer exist on the remote.
-    c   = commit                               # Commit you changes
-    p   = push                                 # Push you changes to a remote
-    ba  = branch -a                            # List both remote-tracking branches and local branches.
-    dc  = diff --cached                        # Display the staged changes
-    ca  = commit --amend --date=now            # Ammend commit with new date
+    co  = checkout                              # Checkout a branch
+    cob = checkout -b                           # Checkout a new not yet existing branch
+    f   = fetch                                 # Fetch from a repository
+    c   = commit                                # Commit you changes
+    p   = push                                  # Push you changes to a remote
+    ba  = branch -a                             # List both remote-tracking branches and local branches.
+    dc  = diff --cached                         # Display the staged changes
+    ca  = commit --amend --date=now             # Ammend commit with new date
     rb  = rebase
     last = log -1
     st = status -sb
