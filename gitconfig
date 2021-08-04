@@ -19,7 +19,8 @@
     diffs = diff --staged
     rmc = rm -r --cached
 
-    lp = log --pretty=format:"%h - %an, %ar : %s" --graph
+    lp = log --pretty=oneline --abbrev-commit
+    ll = log --pretty=oneline --abbrev-commit -5
 
     cb  = ! git branch | fzf | xargs git checkout
 
