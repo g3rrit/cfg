@@ -30,26 +30,26 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
-        "editor.lineNumbers": "relative",
+        "editor.lineNumbers": "relative"
     },
 
     "[cpp]": {
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
-        "editor.lineNumbers": "relative",
+        "editor.lineNumbers": "relative"
     },
 
     "[python]": {
-        "editor.lineNumbers": "relative",
+        "editor.lineNumbers": "relative"
     },
 
     "[haskell]": {
-        "editor.lineNumbers": "relative",
+        "editor.lineNumbers": "relative"
     },
 
     "[ocaml]": {
-        "editor.lineNumbers": "relative",
+        "editor.lineNumbers": "relative"
     },
 
     "editor.fontSize": 15,
@@ -68,5 +68,6 @@
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
-    },
+    }
 }
+

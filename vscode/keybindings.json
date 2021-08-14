@@ -74,5 +74,10 @@
         "key": "shift+alt+f",
         "command": "editor.action.formatSelection",
         "when": "editorTextFocus && editorHasSelection"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
     }
 ]
