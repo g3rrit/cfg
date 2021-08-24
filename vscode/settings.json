@@ -16,6 +16,9 @@
     "editor.renderWhitespace": "all",
     "editor.rulers" : [120],
 
+    "zenMode.fullScreen": false,
+    "zenMode.hideLineNumbers": false,
+
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.visualblock": "block-outline",
@@ -25,6 +28,14 @@
     "C_Cpp.clang_format_fallbackStyle": "none",
 
     "html.autoClosingTags": false,
+
+    "workbench.colorCustomizations": {
+        "editor.selectionHighlightBackground": "#b7dcdd"
+    },
+
+    "[shellscript]": {
+        "editor.lineNumbers": "relative"
+    },
 
     "[c]": {
         "editor.detectIndentation": false,
