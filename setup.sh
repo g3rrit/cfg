@@ -96,6 +96,7 @@ link_file i3/config /home/${USR}/.config/i3/config
 link_file i3/app-icons.json /home/${USR}/.config/i3/app-icons.json
 link_file i3status/config /home/${USR}/.config/i3status/config
 link_file clang-format /home/${USR}/.clang-format
+link_file kitty/kitty.conf /home/${USR}/.config/kitty/kitty.conf
 
 update_content /home/${USR}/.bashrc "#" "
 source ${DIR}/bash_aliases
