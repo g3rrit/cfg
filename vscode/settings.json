@@ -2,7 +2,6 @@
     "telemetry.enableTelemetry": false,
     "keyboard.dispatch": "keyCode",
 
-    "ocaml.merlinPath": "/home/pear/.opam/default/bin/ocamlmerlin",
     "reason.path.ocamlmerlin": "/home/pear/.opam/default/bin/ocamlmerlin",
 
     "git.confirmSync": false,
