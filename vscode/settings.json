@@ -79,6 +79,9 @@
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
-    }
+    },
+
+    "vim.neovimUseConfigFile": true,
+    "vim.neovimConfigPath": "/usr/local/conf/vscode/vimrc"
 }
 

@@ -99,5 +99,8 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 autocmd BufReadPost *.[ch] let b:commentType='//' "C files
 autocmd BufReadPost *.pl let b:commentType='#'    "Perl files
 
-
+" jump to the previous function
+nnoremap <silent> [f :call search('\(\(if\\|for\\|while\\|switch\\|catch\)\_s*\)\@64<!(\_[^)]*)\_[^;{}()]*\zs{',"bw")<CR>
+" jump to the next function
+nnoremap <silent> ]f :call search('\(\(if\\|for\\|while\\|switch\\|catch\)\_s*\)\@64<!(\_[^)]*)\_[^;{}()]*\zs{',"w")<CR>
 
