@@ -5,6 +5,21 @@ set nocompatible
 filetype off
 
 " Load Plugins
+call plug#begin('~/.vim/plugged')
+
+" Depends on
+"   - bat
+"   - fzf
+"   - ripgrep
+"   - the_silver_searcher
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+" Plugin Options
+nnoremap <silent> <leader>p :Files <C-R>=GetProjectDir()<CR><CR>
+nnoremap <silent> <leader>f :Ag <C-R>=GetProjectDir()<CR><CR>
 
 " Turn on syntax highlighting
 syntax on
@@ -15,8 +30,8 @@ colorscheme pear
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-" let mapleader = ","
+" Set leader key
+let mapleader = "\\"
 
 " Security
 set modelines=0
@@ -119,44 +134,9 @@ nnoremap <silent> ]f :call search('\(\(if\\|for\\|while\\|switch\\|catch\)\_s*\)
 
 
 " Commands
-function! ExportColors(scheme_name, ...)
-
-    " Save registers we will use
-    let l:a=@a
-
-
-    redir @a
-    silent! hi
-    redir END
-    new
-
-    " paste in the results of the :hi command, and process it into
-    " valid :hi ... commands
-    normal gg"ap
-    silent! %s/\(\w*\)\s*xxx\s*links to \(\w*\)/hi link \1 \2/ge
-    silent! %s/\(\w*\)\s*\(\w*\)\s*cleared/hi clear \1/ge
-    silent! %s/\(\w*\)\s*xxx\s*\(.*\)/hi \1 \2/ge
-
-    " Write the colorscheme preamble
-    normal gg
-    if a:0 > 0
-        let @a = a:1
-    else
-        let @a = "dark"
-    endif
-    normal iset background="apa
-    normal ihi clear
-    normal iif exists("syntax_on")
-    normal i    syntax reset
-    normal iendif
-
-    let @a=a:scheme_name
-    normal ilet g:colors_name=""apa"
-
-    " Restore registers we used
-    let @a = l:a
-
+function! GetProjectDir()
+    return finddir('.git/..', expand('%:p:h').';')
 endfunction
 
-command! -nargs=+ ExportColors call ExportColors(<q-args>)
+command! GetProjectDir call GetProjectDir()
 

@@ -18,6 +18,7 @@ echo "Running setup for: ${USR}"
 mkdir -p /home/${USR}/.bak
 
 mkdir -p /home/${USR}/.vim/colors
+mkdir -p /home/${USR}/.vim/autoload
 
 function link_file {
 
@@ -101,6 +102,7 @@ link_file i3status/config /home/${USR}/.config/i3status/config
 link_file clang-format /home/${USR}/.clang-format
 link_file kitty/kitty.conf /home/${USR}/.config/kitty/kitty.conf
 link_file vim/colors/pear.vim /home/${USR}/.vim/colors/pear.vim
+link_file vim/autoload/plug.vim /home/${USR}/.vim/autoload/plug.vim
 
 update_content /home/${USR}/.bashrc "#" "
 source ${DIR}/bash_aliases
