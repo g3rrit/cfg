@@ -20,6 +20,7 @@ call plug#end()
 " Plugin Options
 nnoremap <silent> <leader>p :Files <C-R>=GetProjectDir()<CR><CR>
 nnoremap <silent> <leader>f :Ag <C-R>=GetProjectDir()<CR><CR>
+nnoremap <silent> <leader>b :Buffer<CR>
 
 " Turn on syntax highlighting
 syntax on
@@ -84,6 +85,16 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Splits
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>" :split<CR>
+
+" Close current window
+nnoremap <leader>x <C-w>c
+
+" Tabs
+nnoremap <leader>t :tabnew<CR>
+
 " Allow hidden buffers
 set hidden
 
@@ -105,7 +116,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr> " clear search
+nmap <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
