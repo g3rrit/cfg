@@ -1,0 +1,73 @@
+// $XKeyboardConfig: xkbdesc/symbols/latin,v 1.3 2004/10/09 17:40:26 svu Exp $
+
+// Common Latin alphabet layout
+//
+// $XFree86: xc/programs/xkbcomp/symbols/latin,v 1.3 2002/12/20 20:18:34 paulo Exp $
+
+default partial
+xkb_symbols "basic" {
+
+    key <AE01>	{ [         1,     exclam,      exclamdown,     exclamdown ] };
+    key <AE02>	{ [         2,         at,      U2211,          U220F ]	};
+    key <AE03>	{ [         3, numbersign,      U2295,          U2297 ]	};
+    key <AE04>	{ [         4,     dollar,      U2203,       	U2200 ]	};
+    key <AE05>	{ [         5,    percent,      U221E,          U222B ]	};
+    key <AE06>	{ [         6, asciicircum,     U2665,          U2606 ] };
+    key <AE07>	{ [         7,  ampersand,      U2192,          U21D2 ]	};
+    key <AE08>	{ [         8,   asterisk,      U2190,          U21D0 ]	};
+    key <AE09>	{ [         9,  parenleft,      U21A6,          U21D4 ]	};
+    key <AE10>	{ [         0, parenright,      U219B,          U21AF ]	};
+    key <AE11>	{ [     minus, underscore,      ssharp,         U2245 ]	};
+    key <AE12>	{ [     equal,       plus,      U2260,          U00B1 ]	};
+
+    key <AD01>	{ [         q,          Q,      ae,             AE ]	};
+    key <AD02>	{ [         w,          W,      U00F8,          U00D8 ]	};
+    key <AD03>	{ [         e,          E, 	    U03B5,          U0395 ]	};
+    key <AD04>	{ [         r,          R,      U03C1,          U03A1 ]	};
+    key <AD05>	{ [         t,          T,      U03C4,          U03A4 ]	};
+    key <AD06>	{ [         y,          Y ]	};
+    key <AD07>	{ [         u,          U ]	};
+    key <AD08>	{ [         i,          I,      U00E5,          U00C5 ]	};
+    key <AD09>	{ [         o,          O,      U03C9,          U03A9 ]	};
+    key <AD10>	{ [         p,          P,      U03C0,          U03A0 ]	};
+    key <AD11>	{ [bracketleft,  braceleft,     udiaeresis,     Udiaeresis ] };
+    key <AD12>	{ [bracketright, braceright,    aring,          Aring ]	};
+
+    key <AC01>	{ [         a,          A,      U03B1,          U0391 ]	};
+    key <AC02>	{ [         s,          S,      U03C3,         U03A3 ]	};
+    key <AC03>	{ [         d,          D,      U03B4,          U0394 ]	};
+    key <AC04>	{ [         f,          F,      U03C6,          U03A6 ]	};
+    key <AC05>	{ [         g,          G,      U03B3,       	U0393 ]	};
+    key <AC06>	{ [         h,          H,      U03B7,          U0397 ] };
+    key <AC07>	{ [         j,          J,      U03B3,		    U0393 ]	};
+    key <AC08>	{ [         k,          K,      U03BA,          U039A ]	};
+    key <AC09>	{ [         l,          L,      U03BB,          U039B ]	};
+    key <AC10>	{ [ semicolon,      colon,      odiaeresis,     Odiaeresis ] };
+    key <AC11>	{ [apostrophe,   quotedbl,      adiaeresis,     Adiaeresis ] };
+    key <TLDE>	{ [     grave, asciitilde,      dead_grave,     dead_tilde ] };
+
+    key <BKSL>	{ [ backslash,        bar,      slash,          U2012 ]	};
+    key <AB01>	{ [         z,          Z,      U03B6,          U0396 ]	};
+    key <AB02>	{ [         x,          X,      U03C7,          U03A7 ]	};
+    key <AB03>	{ [         c,          C,      U03C8,          U03A8 ]	};
+    key <AB04>	{ [         v,          V,      U03B8,          U0398 ]	};
+    key <AB05>	{ [         b,          B,      U03B2,          U0392 ] };
+    key <AB06>	{ [         n,          N,      U03BD,          U039D ] };
+    key <AB07>	{ [         m,          M,      U03BC,          U039C ] };
+    key <AB08>	{ [     comma,       less,      U2264,          U226A ]	};
+    key <AB09>	{ [    period,    greater,      U2265,          U226B ]	};
+    key <AB10>	{ [     slash,   question,    questiondown,   questiondown ] };
+
+};
+
+partial alphanumeric_keys
+xkb_symbols "euro" {
+
+    include "us(basic)"
+    name[Group1]= "English (US, euro on 5)";
+
+    include "eurosign(5)"
+
+    include "level3(alt_switch)"
+};
+

@@ -14,11 +14,14 @@ fi
 USR=${1:?No User specified}
 echo "Running setup for: ${USR}"
 
-# Create directories
+#### CREATE DIRECTORIES ########################################################
+
 mkdir -p /home/${USR}/.bak
 
 mkdir -p /home/${USR}/.vim/colors
 mkdir -p /home/${USR}/.vim/autoload
+
+#### FUNCTIONS #################################################################
 
 function link_file {
 
@@ -61,7 +64,7 @@ function update_content {
     echo "Updating file ${dst}"
 
     TMP_AWK_FILE="/tmp/tmp_awk_conf_file"
- 
+
     awk '
 BEGIN {
     marker=!marker;
@@ -92,6 +95,8 @@ BEGIN {
     chown ${USR}:${USR} ${dst}
 }
 
+#### LINK FILES ################################################################
+
 link_file vimrc /home/${USR}/.vimrc
 link_file gdbinit /home/${USR}/.gdbinit
 link_file tmux.conf /home/${USR}/.tmux.conf
@@ -103,6 +108,9 @@ link_file clang-format /home/${USR}/.clang-format
 link_file kitty/kitty.conf /home/${USR}/.config/kitty/kitty.conf
 link_file vim/colors/pear.vim /home/${USR}/.vim/colors/pear.vim
 link_file vim/autoload/plug.vim /home/${USR}/.vim/autoload/plug.vim
+link_file keyboard_layouts/pear /usr/share/X11/xkb/symbols/pear
+
+#### UPDATE CONTENT ############################################################
 
 update_content /home/${USR}/.bashrc "#" "
 source ${DIR}/bash_aliases
@@ -112,4 +120,26 @@ update_content /home/${USR}/.gitconfig "#" "
 [include]
   path = ${DIR}/gitconfig
 "
+
+#### SETUP #####################################################################
+
+# Set keyboard layout
+# Changes: cat /etc/X11/xorg.conf.d/00-keyboard.conf
+echo "-----------------"
+echo "Please add they keymap (pear) to /usr/share/X11/kb/rules/base.lst/.xml"
+echo "Also:"
+echo "<layout>"
+echo " <configItem>"
+echo "   <name>pear</name>"
+echo "   <!-- Keyboard indicator for Pear layouts -->"
+echo "   <shortDescription>pear</shortDescription>"
+echo "   <description>Pear</description>"
+echo " </configItem>"
+echo "</layout>"
+
+localectl --no-convert\
+          set-x11-keymap\
+          pear\
+          pc105+inet\
+          terminate:ctrl_alt_bksp,caps:swapescape,lv3:ralt_switch
 
