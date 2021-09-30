@@ -141,5 +141,5 @@ localectl --no-convert\
           set-x11-keymap\
           pear\
           pc105+inet\
-          terminate:ctrl_alt_bksp,caps:swapescape,lv3:ralt_switch
+          terminate:ctrl_alt_bksp,caps:swapescape,lv3:alt_switch
 

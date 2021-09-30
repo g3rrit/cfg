@@ -42,3 +42,10 @@
 
 [pull]
     rebase = true
+
+[core]
+    editor = vim
+
+[merge]
+    conflictstyle = diff3
+
