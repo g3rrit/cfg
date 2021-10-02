@@ -1,0 +1,13 @@
+{
+    "pyls": {
+        "workspace_config": {
+            "pyls": {
+                "plugins": {
+                    "pylint": {
+                        "enabled": true
+                    }
+                }
+            }
+        }
+    }
+}

@@ -15,11 +15,34 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" LSP
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+let g:lsp_diagnostics_float_cursor = 1 " enable echo under cursor when in normal mode
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/.vim-lsp.log')
+
+" Autocomplete
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
 call plug#end()
 
 " Plugin Options
-nnoremap <silent> <leader>p :Files <C-R>=GetProjectDir()<CR><CR>
-nnoremap <silent> <leader>f :Ag <C-R>=GetProjectDir()<CR><CR>
+
+let g:rooter_patterns = ['!=theme', 'package.json', '.git']
+
+" nnoremap <silent> <leader>p :Files <C-R>=GetProjectDir()<CR><CR>
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader>f :Ag<CR>
+" nnoremap <silent> <leader>f :Ag <C-R>=GetProjectDir()<CR><CR>
 nnoremap <silent> <leader>b :Buffer<CR>
 
 " Turn on syntax highlighting
@@ -32,7 +55,22 @@ colorscheme pear
 filetype plugin indent on
 
 " Set leader key
-let mapleader = "\\"
+nnoremap <SPACE> <Nop>
+"let mapleader = " "
+map <Space> <Leader>
+
+" Automatically reload files once branch is changed
+set autoread
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
+" Triger `autoread` when files changes on disk
+" " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 
 " Security
 set modelines=0
@@ -51,9 +89,9 @@ set encoding=utf-8
 
 " Whitespace
 set wrap
-set textwidth=80
+set textwidth=120
 set wrapmargin=0
-set colorcolumn=81 " highlight column
+set colorcolumn=121 " highlight column
 set formatoptions=tcqrn1
 set tabstop=4
 set shiftwidth=4
@@ -116,7 +154,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-nmap <leader><space> :let @/=''<cr> " clear search
+nnoremap <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
@@ -143,6 +181,13 @@ nnoremap <silent> [f :call search('\(\(if\\|for\\|while\\|switch\\|catch\)\_s*\)
 " jump to the next function
 nnoremap <silent> ]f :call search('\(\(if\\|for\\|while\\|switch\\|catch\)\_s*\)\@64<!(\_[^)]*)\_[^;{}()]*\zs{',"w")<CR>
 
+" LSP Settings
+" https://github.com/palantir/python-language-server/blob/develop/vscode-client/package.json
+
+" LSP mappings
+nmap <leader>k :LspHover<cr>
+nnoremap gd mP:LspDefinition<cr>
+nnoremap gD mP:LspDeclaration<cr>
 
 " Commands
 function! GetProjectDir()

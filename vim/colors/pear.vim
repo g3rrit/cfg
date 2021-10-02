@@ -39,8 +39,8 @@ hi SpellBad term=reverse ctermbg=224 gui=undercurl guisp=Red
 hi SpellCap term=reverse ctermbg=81 gui=undercurl guisp=Blue
 hi SpellRare term=reverse ctermbg=225 gui=undercurl guisp=Magenta
 hi SpellLocal term=underline ctermbg=14 gui=undercurl guisp=DarkCyan
-hi Pmenu ctermfg=0 ctermbg=225 guibg=LightMagenta
-hi PmenuSel ctermfg=0 ctermbg=7 guibg=Grey
+hi Pmenu ctermfg=0 ctermbg=White guibg=LightMagenta
+hi PmenuSel ctermfg=0 ctermbg=DarkCyan guibg=Grey
 hi PmenuSbar ctermbg=248 guibg=Grey
 hi PmenuThumb ctermbg=0 guibg=Black
 hi TabLine term=underline cterm=underline ctermfg=0 ctermbg=7 gui=underline guibg=LightGrey
