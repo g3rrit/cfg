@@ -3,3 +3,5 @@ export PATH="/usr/local/conf/bin:${PATH}"
 
 export FZF_DEFAULT_OPTS='--bind "ctrl-w:backward-kill-word"'
 
+export BAT_THEME='Solarized (light)'
+

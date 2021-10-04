@@ -45,7 +45,9 @@
 
 [core]
     editor = vim
+    excludesfile = /usr/local/conf/gitignore
 
 [merge]
     conflictstyle = diff3
+    tool = vimdiff
 

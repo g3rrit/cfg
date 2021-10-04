@@ -99,6 +99,9 @@ set softtabstop=4
 set expandtab
 set noshiftround
 
+" Stop vim from auto inserting newlines
+set textwidth=0
+
 " Relative line numbers
 set relativenumber
 
@@ -195,4 +198,8 @@ function! GetProjectDir()
 endfunction
 
 command! GetProjectDir call GetProjectDir()
+
+" Explore mode open multiple files with J + T
+" https://vi.stackexchange.com/a/13351
+" TODO
 
