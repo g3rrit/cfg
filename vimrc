@@ -1,4 +1,4 @@
-" Don't try to be vi compatible
+ Don't try to be vi compatible
 set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
@@ -63,7 +63,7 @@ map <Space> <Leader>
 set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
-" Triger `autoread` when files changes on disk
+" Trigger `autoread` when files changes on disk
 " " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 " " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
@@ -81,11 +81,18 @@ set number
 " Show file stats
 set ruler
 
-" Blink cursor on error instead of beeping (grr)
+" Blink cursor on error instead of beeping (frr)
 set visualbell
 
 " Encoding
 set encoding=utf-8
+
+" Spellchecking
+set spelllang=en
+set spellfile=/usr/local/conf/vim/spell/en.utf-8.add
+set spell
+" Add word to spell-file `fg`
+" Go to next and previous misspelled word `]s`, `[s`
 
 " Whitespace
 set wrap
@@ -105,7 +112,7 @@ set textwidth=0
 " Relative line numbers
 set relativenumber
 
-" Show trailing whitespace:
+" Show trailing whitespaces:
 match ExtraWhitespace /\s\+$/
 
 " Highlights
