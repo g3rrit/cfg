@@ -199,6 +199,9 @@ nmap <leader>k :LspHover<cr>
 nnoremap gd mP:LspDefinition<cr>
 nnoremap gD mP:LspDeclaration<cr>
 
+" Clang format
+noremap = :pyf /usr/share/clang/clang-format.py<cr>
+
 " Commands
 function! GetProjectDir()
     return finddir('.git/..', expand('%:p:h').';')
