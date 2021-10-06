@@ -1,4 +1,4 @@
- Don't try to be vi compatible
+" Don't try to be vi compatible
 set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
