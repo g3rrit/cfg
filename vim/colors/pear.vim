@@ -11,7 +11,7 @@ hi NonText term=bold ctermfg=12 gui=bold guifg=Blue
 hi Directory term=bold ctermfg=4 guifg=Blue
 hi ErrorMsg term=standout ctermfg=15 ctermbg=1 guifg=White guibg=Red
 hi IncSearch term=reverse cterm=reverse gui=reverse
-hi Search term=reverse ctermbg=11 guibg=Yellow
+hi Search term=reverse ctermbg=253 ctermfg=236 guibg=Yellow
 hi MoreMsg term=bold ctermfg=2 gui=bold guifg=SeaGreen
 hi ModeMsg term=bold cterm=bold gui=bold
 hi LineNr term=underline ctermfg=130 guifg=Brown
@@ -23,7 +23,7 @@ hi StatusLine term=bold,reverse cterm=bold,reverse gui=bold,reverse
 hi StatusLineNC term=reverse cterm=reverse gui=reverse
 hi VertSplit term=reverse cterm=reverse gui=reverse
 hi Title term=bold ctermfg=5 gui=bold guifg=Magenta
-hi Visual term=reverse ctermbg=7 guibg=LightGrey
+hi Visual term=reverse ctermbg=223 guibg=LightGrey
 hi clear VisualNOS
 hi WarningMsg term=standout ctermfg=1 guifg=Red
 hi WildMenu term=standout ctermfg=0 ctermbg=11 guifg=Black guibg=Yellow
@@ -39,7 +39,7 @@ hi SpellBad term=reverse ctermbg=224 gui=undercurl guisp=Red
 hi SpellCap term=reverse ctermbg=81 gui=undercurl guisp=Blue
 hi SpellRare term=reverse ctermbg=225 gui=undercurl guisp=Magenta
 hi SpellLocal term=underline ctermbg=14 gui=undercurl guisp=DarkCyan
-hi Pmenu ctermfg=0 ctermbg=White guibg=LightMagenta
+hi Pmenu ctermfg=0 ctermbg=241 guibg=LightMagenta
 hi PmenuSel ctermfg=0 ctermbg=DarkCyan guibg=Grey
 hi PmenuSbar ctermbg=248 guibg=Grey
 hi PmenuThumb ctermbg=0 guibg=Black

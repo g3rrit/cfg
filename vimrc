@@ -1,6 +1,14 @@
 " Don't try to be vi compatible
 set nocompatible
 
+" Turn on syntax highlighting
+syntax on
+
+" Colorscheme
+" 256 colors defined in https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+set t_Co=256
+colorscheme pear
+
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
@@ -44,12 +52,6 @@ nnoremap <silent> <leader>p :Files<CR>
 nnoremap <silent> <leader>f :Ag<CR>
 " nnoremap <silent> <leader>f :Ag <C-R>=GetProjectDir()<CR><CR>
 nnoremap <silent> <leader>b :Buffer<CR>
-
-" Turn on syntax highlighting
-syntax on
-
-" Colorscheme
-colorscheme pear
 
 " For plugins to load correctly
 filetype plugin indent on
