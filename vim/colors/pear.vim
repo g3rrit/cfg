@@ -53,7 +53,7 @@ hi link QuickFixLine Search
 hi StatusLineTerm term=bold,reverse cterm=bold ctermfg=15 ctermbg=2 gui=bold guifg=bg guibg=DarkGreen
 hi StatusLineTermNC term=reverse ctermfg=15 ctermbg=2 guifg=bg guibg=DarkGreen
 hi clear Normal
-hi MatchParen term=reverse ctermbg=14 guibg=Cyan
+hi MatchParen ctermbg=153
 hi ToolbarLine term=underline ctermbg=7 guibg=LightGrey
 hi ToolbarButton cterm=bold ctermfg=15 ctermbg=242 gui=bold guifg=White guibg=Grey40
 hi Comment term=bold ctermfg=4 guifg=Blue
@@ -517,3 +517,4 @@ hi link vimKeyword Statement
 hi link vimSpecial Type
 hi link vimStatement Statement
 hi ExtraWhitespace ctermbg=9 guibg=red
+hi LspReference ctermbg=NONE ctermfg=15

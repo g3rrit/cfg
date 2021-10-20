@@ -20,6 +20,7 @@ mkdir -p /home/${USR}/.bak
 
 mkdir -p /home/${USR}/.vim/colors
 mkdir -p /home/${USR}/.vim/autoload
+mkdir -p /home/${USR}/.vim/indent
 mkdir -p /home/${USR}/.local/share/vim-lsp-settings
 
 # TODO: chmod dirs
@@ -111,6 +112,7 @@ link_file clang-format /home/${USR}/.clang-format
 link_file kitty/kitty.conf /home/${USR}/.config/kitty/kitty.conf
 link_file vim/colors/pear.vim /home/${USR}/.vim/colors/pear.vim
 link_file vim/autoload/plug.vim /home/${USR}/.vim/autoload/plug.vim
+link_file vim/indent/html.vim /home/${USR}/.vim/indent/html.vim
 link_file vim/lsp_settings/settings.json /home/${USR}/.local/share/vim-lsp-settings/settings.json
 link_file keyboard_layouts/pear /usr/share/X11/xkb/symbols/pear
 
