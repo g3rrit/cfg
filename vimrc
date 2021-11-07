@@ -214,4 +214,3 @@ command! GetProjectDir call GetProjectDir()
 " Explore mode open multiple files with J + T
 " https://vi.stackexchange.com/a/13351
 " TODO
-

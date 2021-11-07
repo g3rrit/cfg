@@ -216,14 +216,10 @@ new_window 1pixel
 
 bar {
         status_command i3status
-        position top	
+        position top
         output eDP-1
-        output HDMI-1
-        output DP-1-1
-        output DP-1-2
-        output DisplayPort-1
-        output HDMI-A-1
         separator_symbol "||"
 }
 
+exec --no-startup-id picom -CGb
 

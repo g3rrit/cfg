@@ -12,11 +12,14 @@
     "editor.cursorStyle": "line",
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "tabs",
+    "editor.renderIndentGuides": false,
     "editor.rulers" : [120],
 
     "zenMode.fullScreen": false,
     "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideActivityBar": false,
 
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
@@ -82,6 +85,57 @@
     },
 
     "vim.neovimUseConfigFile": true,
-    "vim.neovimConfigPath": "/usr/local/conf/vscode/vimrc"
-}
+    "vim.neovimConfigPath": "/usr/local/conf/vscode/vimrc",
 
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        },
+
+    ],
+    "vim.normalModeKeyBindings" :[
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d", "d"]
+        },
+        {
+            "before": ["<C-n>"],
+            "commands": [":nohl"]
+        },
+        {
+            "before" : ["<leader>", "t"],
+            "commands": [ "workbench.action.terminal.focus" ]
+        },
+        {
+            "before" : ["<leader>", "f"],
+            "commands": [ "workbench.action.findInFiles"]
+        },
+        {
+            "before" : ["<leader>", "r"],
+            "commands": [ "workbench.action.replaceInFiles" ]
+        },
+        {
+            "before" : ["<leader>", "n"],
+            "commands": [ "search.action.focusNextSearchResult" ]
+        },
+        {
+            "before" : ["<leader>", "N"],
+            "commands": [ "search.action.focusPreviousSearchResult" ]
+        },
+        {
+            "before" : ["<leader>", "N"],
+            "commands": [ "search.action.focusPreviousSearchResult" ]
+        },
+
+
+    ],
+}
