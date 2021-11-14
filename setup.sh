@@ -22,6 +22,9 @@ mkdir -p /home/${USR}/.vim/colors
 mkdir -p /home/${USR}/.vim/autoload
 mkdir -p /home/${USR}/.vim/indent
 mkdir -p /home/${USR}/.local/share/vim-lsp-settings
+mkdir -p /home/${USR}/.config/sway
+mkdir -p /home/${USR}/.config/i3
+mkdir -p /home/${USR}/.config/i3status
 
 # TODO: chmod dirs
 
@@ -108,6 +111,7 @@ link_file xinitrc /home/${USR}/.xinitrc
 link_file i3/config /home/${USR}/.config/i3/config
 link_file i3/app-icons.json /home/${USR}/.config/i3/app-icons.json
 link_file i3status/config /home/${USR}/.config/i3status/config
+link_file sway/config /home/${USR}/.config/sway/config
 link_file picom.conf /home/${USR}/.config/picom.conf
 link_file clang-format /home/${USR}/.clang-format
 link_file kitty/kitty.conf /home/${USR}/.config/kitty/kitty.conf
