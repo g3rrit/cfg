@@ -51,12 +51,68 @@
         "when" : "editorFocus"
     },
 
+    // commands
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "workbench.action.showCommands"
+    },
+
+    // Vim leader keybindings out of editor
+    {
+        "key" : "space f",
+        "command" : "workbench.action.findInFiles",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space r",
+        "command" : "workbench.action.replaceInFiles",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space t",
+        "command" : "workbench.action.terminal.focus",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space n",
+        "command" : "search.action.focusNextSearchResult",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space shift+n",
+        "command" : "search.action.focusPreviousSearchResult",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space p",
+        "command" : "workbench.action.quickOpen",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space shift+p",
+        "command" : "workbench.action.showCommands",
+        "when": "!editorFocus"
+    },
+    {
+        "key" : "space x",
+        "command" : "workbench.action.toggleSidebarVisibility",
+        "when" : "sideBarFocus"
+    },
+    {
+        "key" : "space x",
+        "command": "workbench.action.togglePanel",
+        "when" : "panelFocus"
+    },
+
     // Remove default keybindings
     {
         "key": "ctrl+k z",
         "command": "-workbench.action.toggleZenMode"
     },
-
     {
         "key": "ctrl+n",
         "command": "-workbench.action.files.newUntitledFile"
