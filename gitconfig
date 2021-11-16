@@ -6,15 +6,16 @@
     br  = branch
     co  = checkout                              # Checkout a branch
     cob = checkout -b                           # Checkout a new not yet existing branch
+    cp  = cherry-pick                           # Cherry pick change
     f   = fetch                                 # Fetch from a repository
     c   = commit                                # Commit you changes
     p   = push                                  # Push you changes to a remote
     ba  = branch -a                             # List both remote-tracking branches and local branches.
     dc  = diff --cached                         # Display the staged changes
     ca  = commit --amend --date=now             # Ammend commit with new date
-    aa  = add --all
-    rb  = rebase
-    last = log -1
+    aa  = add --all                             # Add all changes from anywhere
+    rb  = rebase                                # Rebase
+    last = log -1                               # Log last commit
     st = status -sb
     diffs = diff --staged
     rmc = rm -r --cached
