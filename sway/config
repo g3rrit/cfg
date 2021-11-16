@@ -1,8 +1,7 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
+
+# Guide can be found at: https://www.fosskers.ca/en/blog/wayland
+# Needed packages: sudo pacman -S sway waybar wofi xorg-xwayland xorg-xlsclients qt5-wayland glfw-wayland
 
 ### Variables
 #
@@ -70,10 +69,11 @@ output XWAYLAND2 resolution 1920x1200 position 3840,0
 
 input type:keyboard {
 
-  # Capslock key should work as escape key
-  # See /usr/share/X11/xkb/rules/xorg.lst for options
-  xkb_options caps:swapescape,l3:ralt_switch
-  xkb_layout pear
+    # Capslock key should work as escape key
+    # See /usr/share/X11/xkb/rules/xorg.lst for options
+    xkb_options caps:swapescape,l3:ralt_switch
+    xkb_layout "us"
+    #xkb_variant "pear"
 }
 
 ### Key bindings
