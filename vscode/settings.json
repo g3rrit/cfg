@@ -104,6 +104,23 @@
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
+            "before" : ["<leader>", "h"],
+            "commands" : ["workbench.action.navigateLeft"],
+        },
+        {
+            "before" : ["<leader>", "l"],
+            "commands" : ["workbench.action.navigateRight"],
+        },
+        {
+            "before" : ["<leader>", "k"],
+            "commands" : ["workbench.action.navigateUp"],
+        },
+        {
+            "before" : ["<leader>", "j"],
+            "commands" : ["workbench.action.navigateDown"],
+        },
+
+        {
             "before": ["<leader>", "d"],
             "after": ["d", "d"]
         },
@@ -136,8 +153,17 @@
             "commands": [ "workbench.action.quickOpen" ]
         },
         {
-            "before" : ["<leader>", "P"],
+            "before" : ["<leader>", "c"],
             "commands": [ "workbench.action.showCommands" ]
+        },
+
+        {
+            "before": ["<leader>", "x", "s"],
+            "commands" : ["workbench.action.toggleSidebarVisibility"],
+        },
+        {
+            "before": ["<leader>", "x", "t"],
+            "commands": ["workbench.action.togglePanel"],
         },
 
     ],

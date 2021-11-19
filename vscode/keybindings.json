@@ -2,20 +2,24 @@
 [
     // Vim move around windows
     {
-        "key" : "ctrl+h",
+        "key" : "space h",
         "command" : "workbench.action.navigateLeft",
+        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "ctrl+l",
+        "key" : "space l",
         "command" : "workbench.action.navigateRight",
+        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "ctrl+k",
+        "key" : "space k",
         "command" : "workbench.action.navigateUp",
+        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "ctrl+j",
+        "key" : "space j",
         "command" : "workbench.action.navigateDown",
+        "when": "!editorFocus && !inputFocus"
     },
 
     // Search keybindings
@@ -51,61 +55,57 @@
         "when" : "editorFocus"
     },
 
-    // commands
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpen"
-    },
-    {
-        "key": "ctrl+shift+p",
-        "command": "workbench.action.showCommands"
-    },
-
     // Vim leader keybindings out of editor
     {
         "key" : "space f",
         "command" : "workbench.action.findInFiles",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space r",
         "command" : "workbench.action.replaceInFiles",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space t",
         "command" : "workbench.action.terminal.focus",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space n",
         "command" : "search.action.focusNextSearchResult",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space shift+n",
         "command" : "search.action.focusPreviousSearchResult",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space p",
         "command" : "workbench.action.quickOpen",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space shift+p",
+        "key" : "space c",
         "command" : "workbench.action.showCommands",
-        "when": "!editorFocus"
+        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space x",
+        "key" : "space x s",
         "command" : "workbench.action.toggleSidebarVisibility",
-        "when" : "sideBarFocus"
+        "when" : "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space x",
+        "key" : "space x t",
         "command": "workbench.action.togglePanel",
-        "when" : "panelFocus"
+        "when" : "!editorFocus && !inputFocus"
+    },
+
+    {
+        "key" : "escape",
+        "command" : "workbench.action.focusActiveEditorGroup",
+        "when": "!editorFocus && inputFocus"
     },
 
     // Remove default keybindings
