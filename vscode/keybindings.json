@@ -108,6 +108,18 @@
         "when": "!editorFocus && inputFocus"
     },
 
+    // Select next/previous with vim keybindings
+    {
+        "key" : "alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key" : "alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+
     // Remove default keybindings
     {
         "key": "ctrl+k z",
