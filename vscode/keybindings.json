@@ -87,7 +87,7 @@
         "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space c",
+        "key" : "space o",
         "command" : "workbench.action.showCommands",
         "when": "!editorFocus && !inputFocus"
     },
@@ -3619,5 +3619,9 @@
         "key": "end",
         "command": "-workbench.statusBar.focusLast",
         "when": "statusBarFocused"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-workbench.action.files.save"
     },
 ]

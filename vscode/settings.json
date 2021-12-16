@@ -12,7 +12,7 @@
     "editor.cursorStyle": "line",
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
-    "editor.renderWhitespace": "tabs",
+    "editor.renderWhitespace": "all",
     "editor.renderIndentGuides": false,
     "editor.rulers" : [120],
 
@@ -153,8 +153,20 @@
             "commands": [ "workbench.action.quickOpen" ]
         },
         {
-            "before" : ["<leader>", "c"],
+            "before" : ["<leader>", "o"],
             "commands": [ "workbench.action.showCommands" ]
+        },
+        {
+            "before" : ["<leader>", "x"],
+            "commands" : [ "workbench.action.closeActiveEditor" ]
+        },
+        {
+            "before" : ["<leader>", "w"],
+            "commands" : [ "editor.action.showHover" ]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": [ "workbench.action.files.save" ]
         },
 
         {
@@ -167,4 +179,9 @@
         },
 
     ],
+
+    "gitlab.ignoreCertificateErrors": true,
+    "http.proxySupport": "off",
+    "http.proxyStrictSSL": false,
+    "explorer.confirmDelete": false,
 }

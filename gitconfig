@@ -38,7 +38,7 @@
              [[ -z $1 ]] && { echo "Specify branch"; exit -1; };\
              [[ -z $2 ]] && { echo "Specify topic"; exit -1; };\
              [[ ! $2 =~ "REV|WIP" ]] && { echo "Invalid topic [$2]"; exit -1; };\
-             git push origin HEAD:refs/for/$1%topic=$2;\
+             git push gerrit HEAD:refs/for/$1%topic=$2;\
            }; f"
 
 [pull]
