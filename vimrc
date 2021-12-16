@@ -1,6 +1,10 @@
 " Don't try to be vi compatible
 set nocompatible
 
+" Flags
+let g:enable_lsp = 0
+let g:enable_spell = 0
+
 " Turn on syntax highlighting
 syntax on
 
@@ -24,22 +28,24 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " LSP
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+if g:enable_lsp
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
 
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-let g:lsp_diagnostics_float_cursor = 1 " enable echo under cursor when in normal mode
+    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+    let g:lsp_diagnostics_float_cursor = 1 " enable echo under cursor when in normal mode
 
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/.vim-lsp.log')
+    let g:lsp_log_verbose = 1
+    let g:lsp_log_file = expand('~/.vim-lsp.log')
 
-" Autocomplete
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    " Autocomplete
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+endif
 
 call plug#end()
 
@@ -84,17 +90,19 @@ set number
 set ruler
 
 " Blink cursor on error instead of beeping (frr)
-set visualbell
+" set visualbell
 
 " Encoding
 set encoding=utf-8
 
 " Spellchecking
-set spelllang=en
-set spellfile=/usr/local/conf/vim/spell/en.utf-8.add
-set spell
-" Add word to spell-file `fg`
-" Go to next and previous misspelled word `]s`, `[s`
+if g:enable_spell
+    set spelllang=en
+    set spellfile=/usr/local/conf/vim/spell/en.utf-8.add
+    set spell
+    " Add word to spell-file `fg`
+    " Go to next and previous misspelled word `]s`, `[s`
+endif
 
 " Whitespace
 set wrap
@@ -138,6 +146,9 @@ nnoremap <C-l> <C-w>l
 " Splits
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>" :split<CR>
+
+" Save
+nnoremap <leader>s :w<CR>
 
 " Close current window
 nnoremap <leader>x <C-w>c
@@ -197,12 +208,14 @@ nnoremap <silent> ]f :call search('\(\(if\\|for\\|while\\|switch\\|catch\)\_s*\)
 " https://github.com/palantir/python-language-server/blob/develop/vscode-client/package.json
 
 " LSP mappings
-nmap <leader>k :LspHover<cr>
-nnoremap gd mP:LspDefinition<cr>
-nnoremap gD mP:LspDeclaration<cr>
+if g:enable_lsp
+    nmap <leader>k :LspHover<cr>
+    nnoremap gd mP:LspDefinition<cr>
+    nnoremap gD mP:LspDeclaration<cr>
 
-" Clang format
-noremap = :pyf /usr/share/clang/clang-format.py<cr>
+    " Clang format
+    noremap = :pyf /usr/share/clang/clang-format.py<cr>
+endif
 
 " Commands
 function! GetProjectDir()
