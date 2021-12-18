@@ -1,4 +1,4 @@
-# source /usr/local/dotfiles/bash_aliases
+# source /usr/local/cfg/bash_aliases
 
 alias fzf=fzf-tmux
 alias ll='ls --color=auto -al'

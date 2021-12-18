@@ -1,6 +1,6 @@
 # include this file in your ~/.gitconfig with:
 # [include]
-#   path = /usr/local/conf/gitconfig
+#   path = /usr/local/cfg/gitconfig
 
 [alias]
     br  = branch
@@ -28,7 +28,7 @@
     recommit = commit --reedit-message=HEAD --date=now
     rc = commit --reedit-message=HEAD --date=now
 
-    rmgone = "! sh /usr/local/conf/scripts/git_rm_gone"
+    rmgone = "! sh /usr/local/cfg/scripts/git_rm_gone"
 
     mdiff = difftool -t meld --dir-diff
 
@@ -46,7 +46,7 @@
 
 [core]
     editor = vim
-    excludesfile = /usr/local/conf/gitignore
+    excludesfile = /usr/local/cfg/gitignore
 
 [merge]
     conflictstyle = diff3

@@ -6,13 +6,84 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-if [[ $DIR != "/usr/local/conf" ]]; then
-    echo "Repository in wrong directory [${DIR}] please use /usr/local/conf"
+if [[ $DIR != "/usr/local/cfg" ]]; then
+    echo "Repository in wrong directory [${DIR}] please use /usr/local/cfg"
     exit
 fi
 
-USR=${1:?No User specified}
+USR=""
+pkg=n
+dist="arch"
+
+help() {
+    echo "$0 -u user [...]"
+    exit -1
+}
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+        -u|--user)
+            USR="$2"
+            shift
+            shift
+            ;;
+        -p|--package)
+            pkg=y
+            shift
+            ;;
+        -d|--dist)
+            dist="$2"
+            shift
+            shift
+            ;;
+        -h|--help)
+            help()
+            ;;
+        *)
+            POSITIONAL+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [[ -z $USR ]]; then
+    echo "Please specify user"
+    help()
+fi
+
 echo "Running setup for: ${USR}"
+
+#### DOWNLOAD PACKAGES #########################################################
+
+if [[ pkg = y ]]; then
+
+    echo "Installing packages..."
+
+    pacman -S \
+        vi \
+        vim \
+        git \
+        openssh \
+        sway alacritty waybar wofi \
+        xorg-xwayland xorg-xlsclients qt5-wayland glfw-wayland
+
+    echo "Installing yay..."
+    $(
+        cd /opt
+        git clone https://aur.archlinux.org/yay-git.git
+        chown -R $USR:$USR ./yay-git
+        cd yay-git
+        su $USR
+        cd /opy/yay-git
+        makepkg -si
+        yay -S \
+            google-chrome \
+            visual-studio-code-bin
+    )
+fi
 
 #### CREATE DIRECTORIES ########################################################
 
@@ -148,9 +219,9 @@ echo "   <description>Pear</description>"
 echo " </configItem>"
 echo "</layout>"
 
-localectl --no-convert\
-          set-x11-keymap\
-          pear\
-          pc105+inet\
-          terminate:ctrl_alt_bksp,caps:swapescape,lv3:alt_switch
+# localectl --no-convert\
+#          set-x11-keymap\
+#          pear\
+#          pc105+inet\
+#          terminate:ctrl_alt_bksp,caps:swapescape,lv3:alt_switch
 
