@@ -40,7 +40,7 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         -h|--help)
-            help()
+            help
             ;;
         *)
             POSITIONAL+=("$1")
@@ -51,7 +51,7 @@ done
 
 if [[ -z $USR ]]; then
     echo "Please specify user"
-    help()
+    help
 fi
 
 echo "Running setup for: ${USR}"
@@ -88,16 +88,7 @@ fi
 #### CREATE DIRECTORIES ########################################################
 
 mkdir -p /home/${USR}/.bak
-
-mkdir -p /home/${USR}/.vim/colors
-mkdir -p /home/${USR}/.vim/autoload
-mkdir -p /home/${USR}/.vim/indent
-mkdir -p /home/${USR}/.local/share/vim-lsp-settings
-mkdir -p /home/${USR}/.config/sway
-mkdir -p /home/${USR}/.config/i3
-mkdir -p /home/${USR}/.config/i3status
-
-# TODO: chmod dirs
+chmod -R ${USR}:${USR} /home/${USR}/.bak
 
 #### FUNCTIONS #################################################################
 
@@ -115,6 +106,9 @@ function link_file {
     fi
 
     echo "Linking ${DIR}/${src} to ${dst}"
+    dst_dir=$(dirname $dst)
+    mkdir -p ${dst_dir}
+    chown ${USR}:${USR} ${dst_dir}
     ln -s ${DIR}/${src} ${dst}
     chown ${USR}:${USR} ${dst}
 }
@@ -191,6 +185,8 @@ link_file vim/autoload/plug.vim /home/${USR}/.vim/autoload/plug.vim
 link_file vim/indent/html.vim /home/${USR}/.vim/indent/html.vim
 link_file vim/lsp_settings/settings.json /home/${USR}/.local/share/vim-lsp-settings/settings.json
 link_file keyboard_layouts/pear /usr/share/X11/xkb/symbols/pear
+link_file vscode/settings.json /home/${USR}/.config/Code/User/settings.json
+link_file vscode/keybindings.json /home/${USR}/.config/Code/User/keybindings.json
 
 #### UPDATE CONTENT ############################################################
 
