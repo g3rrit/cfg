@@ -101,8 +101,17 @@
 
     ],
     "vim.normalModeKeyBindings" :[
+        {
+            "before" : ["<leader>", "j"],
+            "after" : ["<c-d>", "<leader>"],
+        },
+        {
+            "before" : ["<leader>", "k"],
+            "after" : ["<c-u>", "<leader>"],
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
+
         {
             "before" : ["<leader>", "h"],
             "commands" : ["workbench.action.navigateLeft"],
