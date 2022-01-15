@@ -1,0 +1,6 @@
+- Open the start menu and search for “Regedit” (click “Yes” if any dialog appears)
+- Click on “File”
+- Click on “Import”
+- Select the file you have just saved (i.e. ‘swap-esc-caps.reg’)
+- Log out and then log back in for the changes to take effect. Sometimes a full restart is required.
+- Start using your keyboard more efficiently!
