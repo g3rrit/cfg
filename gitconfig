@@ -14,6 +14,7 @@
     dc  = diff --cached                         # Display the staged changes
     ca  = commit --amend --date=now             # Ammend commit with new date
     aa  = add --all                             # Add all changes from anywhere
+    can  = commit --amend --no-edit             # Ammend commit and dont edit commit message
     rb  = rebase                                # Rebase
     last = log -1                               # Log last commit
     st = status -sb

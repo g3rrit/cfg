@@ -2,6 +2,8 @@
     "telemetry.enableTelemetry": false,
     "keyboard.dispatch": "keyCode",
 
+    "latex-workshop.latex.autoBuild.run": "never",
+
     "reason.path.ocamlmerlin": "/home/pear/.opam/default/bin/ocamlmerlin",
 
     "git.confirmSync": false,
