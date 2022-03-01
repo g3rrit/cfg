@@ -98,18 +98,17 @@
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],
-            "after": ["<Esc>"]
+            "after": ["<esc>"]
         },
-
     ],
     "vim.normalModeKeyBindings" :[
         {
             "before" : ["<leader>", "j"],
-            "after" : ["<c-d>", "<leader>"],
+            "after" : ["<c-d>"],
         },
         {
             "before" : ["<leader>", "k"],
-            "after" : ["<c-u>", "<leader>"],
+            "after" : ["<c-u>"],
         },
         {
             "before" : ["<leader>", "g"],
@@ -125,19 +124,6 @@
         {
             "before" : ["<leader>", "l"],
             "commands" : ["workbench.action.navigateRight"],
-        },
-        {
-            "before" : ["<leader>", "k"],
-            "commands" : ["workbench.action.navigateUp"],
-        },
-        {
-            "before" : ["<leader>", "j"],
-            "commands" : ["workbench.action.navigateDown"],
-        },
-
-        {
-            "before": ["<leader>", "d"],
-            "after": ["d", "d"]
         },
         {
             "before": ["<C-n>"],
@@ -157,7 +143,7 @@
         },
         {
             "before" : ["<leader>", "n"],
-            "commands": [ "search.action.focusNextSearchResult" ]
+            "commands": [ "search.action.focusNextSearchResult" ],
         },
         {
             "before" : ["<leader>", "N"],
@@ -172,18 +158,13 @@
             "commands": [ "workbench.action.showCommands" ]
         },
         {
-            "before" : ["<leader>", "x"],
+            "before" : ["<leader>", "x", "x"],
             "commands" : [ "workbench.action.closeActiveEditor" ]
-        },
-        {
-            "before" : ["<leader>", "w"],
-            "commands" : [ "editor.action.showHover" ]
         },
         {
             "before": ["<leader>", "s"],
             "commands": [ "workbench.action.files.save" ]
         },
-
         {
             "before": ["<leader>", "x", "s"],
             "commands" : ["workbench.action.toggleSidebarVisibility"],
@@ -198,5 +179,11 @@
     "gitlab.ignoreCertificateErrors": true,
     "http.proxySupport": "off",
     "http.proxyStrictSSL": false,
-    "explorer.confirmDelete": false,
+
+    "explorer.confirmDelete": true,
+
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=120"
+    ],
 }
