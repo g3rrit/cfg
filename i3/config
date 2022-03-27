@@ -48,7 +48,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec --no-startup-id feh --bg-scale /usr/local/dotfiles/windows_xp_blue.jpg
 
 # Icons next to workspace numbers
 # Install via `python3 -m pip install i3-workspace-names-daemon`

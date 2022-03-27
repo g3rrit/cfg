@@ -177,6 +177,8 @@ link_file i3/config /home/${USR}/.config/i3/config
 link_file i3/app-icons.json /home/${USR}/.config/i3/app-icons.json
 link_file i3status/config /home/${USR}/.config/i3status/config
 link_file sway/config /home/${USR}/.config/sway/config
+link_file waybar/config /home/${USR}/.config/waybar/config
+link_file waybar/style.css /home/${USR}/.config/waybar/syle.css
 link_file picom.conf /home/${USR}/.config/picom.conf
 link_file clang-format /home/${USR}/.clang-format
 link_file kitty/kitty.conf /home/${USR}/.config/kitty/kitty.conf
