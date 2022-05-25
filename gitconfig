@@ -20,6 +20,7 @@
     st = status -sb
     diffs = diff --staged
     rmc = rm -r --cached
+    capf = ! git add . && git commit --amend --no-edit && git push -f
 
     lp = log --pretty=oneline --abbrev-commit
     ll = log --pretty=oneline --abbrev-commit -5

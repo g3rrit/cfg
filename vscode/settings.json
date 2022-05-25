@@ -15,7 +15,6 @@
     "editor.tabSize": 4,
     "editor.detectIndentation": true,
     "editor.renderWhitespace": "all",
-    "editor.renderIndentGuides": false,
     "editor.rulers" : [120],
 
     "zenMode.fullScreen": false,
@@ -158,6 +157,10 @@
             "commands": [ "workbench.action.showCommands" ]
         },
         {
+            "before": ["<leader>", "["],
+            "commands": [ "workbench.action.showAllSymbols" ],
+        },
+        {
             "before" : ["<leader>", "x", "x"],
             "commands" : [ "workbench.action.closeActiveEditor" ]
         },
@@ -172,6 +175,14 @@
         {
             "before": ["<leader>", "x", "t"],
             "commands": ["workbench.action.togglePanel"],
+        },
+        {
+            "before": ["<leader>", "v"],
+            "commands": ["workbench.action.splitEditor"],
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": ["workbench.action.closeEditorsInOtherGroups"],
         },
 
     ],

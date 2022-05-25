@@ -92,6 +92,11 @@
         "when": "!editorFocus && !inputFocus"
     },
     {
+        "key": "space [",
+        "command": "workbench.action.showAllSymbols",
+        "when" : "!editorFocus && !inputFocus"
+    },
+    {
         "key" : "space x s",
         "command" : "workbench.action.toggleSidebarVisibility",
         "when" : "!editorFocus && !inputFocus"
@@ -110,14 +115,83 @@
 
     // Select next/previous with vim keybindings
     {
-        "key" : "alt+j",
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+j",
         "command": "workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key" : "alt+k",
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+k",
         "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
+    },
+    {
+        "key": "alt+j",
+        "command": "search.focus.nextInputBox",
+        "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "alt+k",
+        "command": "search.focus.previousInputBox",
+        "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
+    },
+    {
+        "key": "alt+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "alt+j",
+        "command": "showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "alt+k",
+        "command": "-showPrevParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+
+
+
+    // Utility keybindings
+    { // Apply replace all
+        "key" : "ctrl+r",
+        "command" : "search.action.replaceAll",
+        "when" : "replaceActive"
     },
 
     // Remove default keybindings
