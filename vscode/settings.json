@@ -90,6 +90,7 @@
 
     "vim.easymotion": true,
     "vim.incsearch": true,
+    "vim.sneak": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
@@ -184,7 +185,22 @@
             "before": ["<leader>", "b"],
             "commands": ["workbench.action.closeEditorsInOtherGroups"],
         },
-
+        {
+            "before": ["<leader>", "x", "b"],
+            "commands": ["workbench.action.closeGroup"]
+        },
+        {
+            "before": ["<leader>", "x", "a"],
+            "commands": ["workbench.action.closeAllEditors"]
+        },
+        {
+            "before": ["<leader>", "i"],
+            "commands": ["workbench.action.increaseViewSize"]
+        },
+        {
+            "before": ["<leader>", "d"],
+            "commands": ["workbench.action.decreaseViewSize"]
+        }
     ],
 
     "gitlab.ignoreCertificateErrors": true,
@@ -197,4 +213,24 @@
     "python.formatting.blackArgs": [
         "--line-length=120"
     ],
+    "editor.guides.indentation": false,
+
+    "command-runner.terminal.name": "runCommand",
+    "command-runner.terminal.autoClear": true,
+    "command-runner.terminal.autoFocus": true,
+    "command-runner.commands": {
+        "install_deps": "${homedir}/git/ml/ml_dpi/scripts/install.sh --no-deps",
+        "pylint": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_pylint.sh",
+        "black_check": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_black.sh check",
+        "black": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_black.sh",
+        "pytest": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_pytest.sh",
+        "show_coverage": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/show_coverage.sh"
+    },
+
+    "cSpell.ignoreWords": [
+        "atype", "fhandle", "recp", "nunique", "isin", "astype", "iterrows", "argmax", "hyperopt", "mlflow",
+        "dropna", "arange", "kfold", "xticks", "yticks", "disp", "sklearn", "dataframe", "overclassified",
+        "treebased", "iloc", "multicore" "sqlalchemy", "plotly", "dropdowns", "ndarray", "xaxis", "yaxis",
+        "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum",
+    ]
 }

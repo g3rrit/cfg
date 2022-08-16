@@ -185,8 +185,6 @@
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
     },
 
-
-
     // Utility keybindings
     { // Apply replace all
         "key" : "ctrl+r",

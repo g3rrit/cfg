@@ -30,10 +30,12 @@ set $menu wofi --show=drun --lines=5 --promt=""
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/local/cfg/bg/wave.jpg fill
 
-output eDP-1 resolution 1920x1080 position 1200,1200
-output DP-4 resolution 1920x1200 position 1200,0
+# output eDP-1 resolution 1920x1080 position 1200,1200
+# output eDP-1 resolution 1920x1080 position 3120,0
+output eDP-1 resolution 1920x1080 position 3840,0
+output DP-4 resolution 1920x1200 position 1920,0
 # output DP-5 resolution 1920x1200 position 3840,0
-output DP-5 transform 270
+# output DP-5 transform 270
 output DP-5 resolution 1920x1200 position 0,0
 
 # Home screen
