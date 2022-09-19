@@ -191,6 +191,11 @@
         "command" : "search.action.replaceAll",
         "when" : "replaceActive"
     },
+    {
+        "key": "ctrl+r",
+        "command": "redo"
+    },
+
 
     // Remove default keybindings
     {

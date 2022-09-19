@@ -25,6 +25,9 @@
     lp = log --pretty=oneline --abbrev-commit
     ll = log --pretty=oneline --abbrev-commit -5
 
+    tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    rlog = "!f() { c1=$1; c2=$2; shift 2; git log --reverse --ancestry-path ${c1}^..${c2} $@; }; f"
+
     cb  = ! git branch | fzf | xargs git checkout
 
     recommit = commit --reedit-message=HEAD --date=now

@@ -84,6 +84,7 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
+    "git.mergeEditor": false,
 
     "vim.neovimUseConfigFile": true,
     "vim.neovimConfigPath": "/usr/local/conf/vscode/vimrc",
@@ -200,6 +201,18 @@
         {
             "before": ["<leader>", "d"],
             "commands": ["workbench.action.decreaseViewSize"]
+        },
+        {
+            "before": ["<leader>", "m", "b"],
+            "commands": ["merge-conflict.accept.both"]
+        },
+        {
+            "before": ["<leader>", "m", "i"],
+            "commands": ["merge-conflict.accept.incoming"]
+        },
+        {
+            "before": ["<leader>", "m", "c"],
+            "commands": ["merge-conflict.accept.current"]
         }
     ],
 
@@ -231,6 +244,6 @@
         "atype", "fhandle", "recp", "nunique", "isin", "astype", "iterrows", "argmax", "hyperopt", "mlflow",
         "dropna", "arange", "kfold", "xticks", "yticks", "disp", "sklearn", "dataframe", "overclassified",
         "treebased", "iloc", "multicore" "sqlalchemy", "plotly", "dropdowns", "ndarray", "xaxis", "yaxis",
-        "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum",
+        "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum","staticproperty", "classproperty"
     ]
 }
