@@ -195,6 +195,21 @@
         "key": "ctrl+r",
         "command": "redo"
     },
+    {
+        "key": "enter",
+        "command": "repl.action.acceptInput",
+        "when": "inDebugRepl && textInputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "acceptSelectedSuggestion",
+        "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+    },
+    {
+        "key": "tab",
+        "command": "tab",
+        "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+    },
 
 
     // Remove default keybindings
@@ -4017,11 +4032,6 @@
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "enter",
-        "command": "-repl.action.acceptInput",
-        "when": "inDebugRepl && textInputFocus"
-    },
-    {
         "key": "ctrl+shift+r",
         "command": "-command-runner.run"
     },
@@ -4142,11 +4152,6 @@
         "key": "tab",
         "command": "-acceptSelectedSuggestion",
         "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "enter",
-        "command": "-acceptSelectedSuggestion",
-        "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
     },
     {
         "key": "ctrl+shift+.",

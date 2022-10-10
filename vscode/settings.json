@@ -80,10 +80,12 @@
     "editor.insertSpaces": true,
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
     "editor.wordWrap": "off",
+
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
+
     "git.mergeEditor": false,
 
     "vim.neovimUseConfigFile": true,
@@ -202,6 +204,7 @@
             "before": ["<leader>", "d"],
             "commands": ["workbench.action.decreaseViewSize"]
         },
+        // Merge Conflicts
         {
             "before": ["<leader>", "m", "b"],
             "commands": ["merge-conflict.accept.both"]
@@ -213,6 +216,31 @@
         {
             "before": ["<leader>", "m", "c"],
             "commands": ["merge-conflict.accept.current"]
+        },
+        // Jupyter Notebooks
+        {
+            "before": [ "<leader>", "c", "n" ],
+            "commands": [ "notebook.focusNextEditor" ],
+        },
+        {
+            "before": [ "<leader>", "c", "N" ],
+            "commands": [ "notebook.focusPreviousEditor" ],
+        },
+        {
+            "before": [ "<leader>", "c", "o" ],
+            "commands": [ "notebook.cell.insertCodeCellBelow" ],
+        },
+        {
+            "before": [ "<leader>", "c", "O" ],
+            "commands": [ "notebook.cell.insertCodeCellAbove" ],
+        },
+        {
+            "before": [ "<leader>", "c", "c" ],
+            "commands": [ "notebook.cell.execute" ],
+        },
+        {
+            "before": [ "<leader>", "c", "x" ],
+            "commands": [ "notebook.cell.delete" ],
         }
     ],
 
@@ -243,7 +271,7 @@
     "cSpell.ignoreWords": [
         "atype", "fhandle", "recp", "nunique", "isin", "astype", "iterrows", "argmax", "hyperopt", "mlflow",
         "dropna", "arange", "kfold", "xticks", "yticks", "disp", "sklearn", "dataframe", "overclassified",
-        "treebased", "iloc", "multicore" "sqlalchemy", "plotly", "dropdowns", "ndarray", "xaxis", "yaxis",
+        "treebased", "iloc", "multicore", "sqlalchemy", "plotly", "dropdowns", "ndarray", "xaxis", "yaxis",
         "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum","staticproperty", "classproperty"
     ]
 }
