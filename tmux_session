@@ -1,0 +1,7 @@
+splitw -t 1
+send-keys "date" Enter
+rename-window top
+neww -n git
+
+selectw -t 1
+

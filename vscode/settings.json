@@ -8,8 +8,8 @@
 
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "Source Code Variable",
-    
+    "editor.fontFamily": "Hack",
+
     "editor.lineNumbers": "on",
     "editor.cursorStyle": "line",
     "editor.tabSize": 4,
@@ -260,18 +260,17 @@
     "command-runner.terminal.autoClear": true,
     "command-runner.terminal.autoFocus": true,
     "command-runner.commands": {
-        "install_deps": "${homedir}/git/ml/ml_dpi/scripts/install.sh --no-deps",
-        "pylint": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_pylint.sh",
-        "black_check": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_black.sh check",
-        "black": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_black.sh",
-        "pytest": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/run_pytest.sh",
-        "show_coverage": "source ${homedir}/git/ml/ml_dpi/scripts/vars.sh; ${homedir}/git/ml/ml_dpi/scripts/show_coverage.sh"
+        "date": "date",
     },
 
     "cSpell.ignoreWords": [
         "atype", "fhandle", "recp", "nunique", "isin", "astype", "iterrows", "argmax", "hyperopt", "mlflow",
         "dropna", "arange", "kfold", "xticks", "yticks", "disp", "sklearn", "dataframe", "overclassified",
         "treebased", "iloc", "multicore", "sqlalchemy", "plotly", "dropdowns", "ndarray", "xaxis", "yaxis",
-        "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum","staticproperty", "classproperty"
-    ]
+        "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum","staticproperty", "classproperty",
+        "opam", "visualblock", "ocamlmerlin", "neovim", "easymotion", "hlsearch", "incsearch", "ipynb"
+    ],
+
+    "window.zoomLevel": -1,
+    "haskell.manageHLS": "PATH",
 }
