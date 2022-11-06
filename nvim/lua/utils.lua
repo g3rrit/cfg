@@ -11,6 +11,10 @@ function M.make_scratch()
     vim.bo[0].swapfile=false
 end
 
+--- Create a popup window.
+-- @param kill_on_done Flag indicating whether to kill the command and buffer when the popup is closed.
+-- @param cmd Command or executable.
+-- @param ... Additional arguemnts for command.
 function M.exec_cmd(kill_on_done, cmd, ...)
 
     local win_height = api.nvim_get_option("lines")
