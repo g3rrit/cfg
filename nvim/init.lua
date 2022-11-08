@@ -15,6 +15,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neovim/nvim-lspconfig'
 
+-- Autocompletion
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
 vim.call('plug#end')
 --------------------
 
@@ -40,12 +50,8 @@ vim.g.gruvbox_contrast_light = "hard"
 vim.cmd("colorscheme gruvbox")
 
 -- Set leader key
-vim.g.mapleader = "<Space>"
-
--- FZF Settings
-vim.api.nvim_set_keymap("n", "<leader>p", ":Files<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>f", ":Ag<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>b", ":Buffer<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<space>", "<Nop>", { silent = true, remap = false })
+vim.g.mapleader = "<space>"
 
 -- Set left margin (used by lsp) to always be present
 vim.opt.signcolumn = "yes:1"
@@ -114,27 +120,6 @@ vim.opt.listchars = {
 vim.opt.scrolloff = 3
 vim.opt.backspace = { "indent", "eol", "start" }
 
--- Move up/down editor lines
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
--- Splits
-vim.api.nvim_set_keymap("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>\"", ":split<CR>", { noremap = true, silent = true })
-
--- Save
-vim.api.nvim_set_keymap("n", "<leader>s", ":w<CR>", { noremap = true, silent = true })
-
--- Close current window
-vim.api.nvim_set_keymap("n", "<leader>x", "<C-w>c", { noremap = true, silent = true })
-
--- Tabs
-vim.api.nvim_set_keymap("n", "<leader>t", ":tabnew<CR>", { noremap = true, silent = true })
-
 -- Allow hidden buffers
 vim.opt.hidden = true
 
@@ -149,17 +134,11 @@ vim.opt.showmode = true
 vim.opt.showcmd = true
 
 -- Searching
-vim.api.nvim_set_keymap("n", "/", "/\v", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "/", "/\v", { noremap = true, silent = true })
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.showmatch = true
-vim.api.nvim_set_keymap("n", "<leader><space>", ":let @/=''<cr>", { noremap = true, silent = true }) -- clear search
-
--- Formatting
-vim.api.nvim_set_keymap("n", "<leader>q", "gqip", { noremap = true, silent = true }) -- clear search
 
 -- TODO
 -- map <leader>l :set list!<CR> " Toggle tabs and EOL
@@ -181,10 +160,14 @@ vim.api.nvim_set_keymap("n", "<leader>q", "gqip", { noremap = true, silent = tru
 --command! GetProjectDir call GetProjectDir()
 --
 
--- command! MakeScratch lua require'utils'.make_scratch()
--- command! -nargs=+ ExecCmd lua require'utils'.exec_cmd(false, <f-args>)
--- command! -nargs=+ ExecCmdK lua require'utils'.exec_cmd(true, <f-args>)
+-- Load other modules
+require("keybindings")
+require("commands")
+require("lspsetup")
+require("cmp_setup")
 
+
+-- DEBUG
 --function! ReloadUtils() abort
 --    lua for k in pairs(package.loaded) do if k:match("^utils") then package.loaded[k] = nil end end
 --    lua require("utils")
@@ -192,5 +175,4 @@ vim.api.nvim_set_keymap("n", "<leader>q", "gqip", { noremap = true, silent = tru
 
 --command! ReloadUtils call ReloadUtils()
 
-require("lspsetup")
 

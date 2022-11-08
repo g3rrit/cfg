@@ -11,11 +11,21 @@ function M.make_scratch()
     vim.bo[0].swapfile=false
 end
 
+function M.slice(tbl, first, last, step)
+  local sliced = {}
+
+  for i = first or 1, last or #tbl, step or 1 do
+    sliced[#sliced+1] = tbl[i]
+  end
+
+  return sliced
+end
+
 --- Create a popup window.
 -- @param kill_on_done Flag indicating whether to kill the command and buffer when the popup is closed.
 -- @param cmd Command or executable.
--- @param ... Additional arguemnts for command.
-function M.exec_cmd(kill_on_done, cmd, ...)
+-- @param opt_args Additional arguments for command.
+function M.exec_cmd(kill_on_done, cmd, opt_args)
 
     local win_height = api.nvim_get_option("lines")
     local win_width = api.nvim_get_option("columns")
@@ -89,7 +99,7 @@ function M.exec_cmd(kill_on_done, cmd, ...)
     end
 
     -- convert vaargs to array
-    local opt_args={...}
+    -- local opt_args={...}
 
     local handle = nil
 
