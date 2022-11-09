@@ -14,6 +14,8 @@ Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neovim/nvim-lspconfig'
+Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 
 -- Autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -163,7 +165,7 @@ vim.opt.showmatch = true
 -- Load other modules
 require("keybindings")
 require("commands")
-require("lspsetup")
+require("lsp_setup")
 require("cmp_setup")
 
 

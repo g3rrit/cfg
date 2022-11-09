@@ -59,3 +59,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+-- Easymotion
+vim.keymap.set("n", ',', '<Plug>(easymotion-prefix)',{remap = false, silent = true})
+-- vim.keymap.set("n", 'jj', '<Plug>(easymotion-j)',{remap = false, silent = true})
+

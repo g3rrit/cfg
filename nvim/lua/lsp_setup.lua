@@ -8,6 +8,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- lua
 lspconfig.sumneko_lua.setup({
     -- on_attach = custom_command,
     settings = {
@@ -36,7 +37,13 @@ lspconfig.sumneko_lua.setup({
     capabilities = cmp_capabilities
 })
 
+-- haskell
 lspconfig.hls.setup({
+    capabilities = cmp_capabilities
+})
+
+-- ocaml
+lspconfig.ocamllsp.setup({
     capabilities = cmp_capabilities
 })
 
