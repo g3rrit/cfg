@@ -51,3 +51,15 @@ awk 'BEGIN{
     printf "\n";
 }'
 ```
+
+### Notes
+
+Run `verb set fo` to figure out where `fo` was last set
+
+## Important Keybindings
+
+- `ctrl+u`: scroll up
+- `ctrl+d`: scroll down
+- `ctrl+o`: previous jumplist
+- `ctrl+i`: next jumplist
+

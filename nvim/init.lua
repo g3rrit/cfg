@@ -14,8 +14,13 @@ Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neovim/nvim-lspconfig'
+
+-- Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
+
+-- Git
+Plug 'tpope/vim-fugitive'
 
 -- Autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -26,6 +31,13 @@ Plug 'hrsh7th/nvim-cmp'
 
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+
+-- Utils
+Plug 'nvim-lua/plenary.nvim'
+
+-- Scala LSP
+Plug('scalameta/nvim-metals', { ['requires'] = { "nvim-lua/plenary.nvim" }})
+
 
 vim.call('plug#end')
 --------------------
@@ -97,7 +109,6 @@ vim.opt.wrap = true
 vim.opt.textwidth= 120
 vim.opt.wrapmargin= 0
 vim.opt.colorcolumn= "121" -- highlight column
-vim.opt.formatoptions = "tcqrn1"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
@@ -142,6 +153,10 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.showmatch = true
 
+-- Disable automatic continuation of comment lines
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
 -- TODO
 -- map <leader>l :set list!<CR> " Toggle tabs and EOL
 
@@ -167,14 +182,4 @@ require("keybindings")
 require("commands")
 require("lsp_setup")
 require("cmp_setup")
-
-
--- DEBUG
---function! ReloadUtils() abort
---    lua for k in pairs(package.loaded) do if k:match("^utils") then package.loaded[k] = nil end end
---    lua require("utils")
---endfunction
-
---command! ReloadUtils call ReloadUtils()
-
 

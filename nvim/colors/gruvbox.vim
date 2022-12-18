@@ -598,6 +598,10 @@ hi! link Label GruvboxRed
 hi! link Exception GruvboxRed
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
+" Float Boarder
+hi! link FloatBorder Normal
+" Float Background
+hi! link NormalFloat Normal
 " Any other keyword
 hi! link Keyword GruvboxRed
 

@@ -40,26 +40,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('n', 'gh', vim.lsp.buf.hover, { buffer = args.buf, remap = false, silent = true })
         end
 
---        vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, { buffer = args.buf, remap = false, silent = true })
---        vim.keymap.set('n','gD',vim.lsp.buf.declaration, { remap = false, silent = true })
---        vim.keymap.set('n','gd',vim.lsp.buf.definition, { remap = false, silent = true })
---        vim.keymap.set('n','gr',vim.lsp.buf.references, { remap = false, silent = true })
---        vim.keymap.set('n','gs',vim.lsp.buf.signature_help, { remap = false, silent = true })
---        vim.keymap.set('n','gi',vim.lsp.buf.implementation, { remap = false, silent = true })
---        vim.keymap.set('n','gt',vim.lsp.buf.type_definition, { remap = false, silent = true })
---        vim.keymap.set('n','<space>gw',vim.lsp.buf.document_symbol, { remap = false, silent = true })
---        vim.keymap.set('n','<space>gW',vim.lsp.buf.workspace_symbol, { remap = false, silent = true })
---        vim.keymap.set('n','<space>ah',vim.lsp.buf.hover, { remap = false, silent = true })
---        vim.keymap.set('n','<space>af',vim.lsp.buf.code_action, { remap = false, silent = true })
---        vim.keymap.set('n','<space>ee',vim.lsp.util.show_line_diagnostics, { remap = false, silent = true })
---        vim.keymap.set('n','<space>ar',vim.lsp.buf.rename, { remap = false, silent = true })
---        vim.keymap.set('n','<space>=', vim.lsp.buf.formatting, { remap = false, silent = true })
---        vim.keymap.set('n','<space>ai',vim.lsp.buf.incoming_calls, { remap = false, silent = true })
---        vim.keymap.set('n','<space>ao',vim.lsp.buf.outgoing_calls, { remap = false, silent = true })
+        vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, { buffer = args.buf, remap = false, silent = true })
+        vim.keymap.set('n','gD',vim.lsp.buf.declaration, { remap = false, silent = true })
+        vim.keymap.set('n','gd',vim.lsp.buf.definition, { remap = false, silent = true })
+        vim.keymap.set('n','gr',vim.lsp.buf.references, { remap = false, silent = true })
+        vim.keymap.set('n','gs',vim.lsp.buf.signature_help, { remap = false, silent = true })
+        vim.keymap.set('n','gi',vim.lsp.buf.implementation, { remap = false, silent = true })
+        -- TODO: find something better here
+        -- vim.keymap.set('n','gt',vim.lsp.buf.type_definition, { remap = false, silent = true })
+        vim.keymap.set('n','<space>gw',vim.lsp.buf.document_symbol, { remap = false, silent = true })
+        vim.keymap.set('n','<space>gW',vim.lsp.buf.workspace_symbol, { remap = false, silent = true })
+        vim.keymap.set('n','<space>ah',vim.lsp.buf.hover, { remap = false, silent = true })
+        vim.keymap.set('n','<space>af',vim.lsp.buf.code_action, { remap = false, silent = true })
+        -- TODO: fix this
+        -- vim.keymap.set('n','<space>ee',vim.lsp.util.show_line_diagnostics, { remap = false, silent = true })
+        vim.keymap.set('n','<space>ar',vim.lsp.buf.rename, { remap = false, silent = true })
+        vim.keymap.set('n','<space>=', vim.lsp.buf.formatting, { remap = false, silent = true })
+        vim.keymap.set('n','<space>ai',vim.lsp.buf.incoming_calls, { remap = false, silent = true })
+        vim.keymap.set('n','<space>ao',vim.lsp.buf.outgoing_calls, { remap = false, silent = true })
     end,
 })
 
 -- Easymotion
-vim.keymap.set("n", ',', '<Plug>(easymotion-prefix)',{remap = false, silent = true})
+vim.keymap.set("n", '\\', '<Plug>(easymotion-prefix)',{remap = false, silent = true})
 -- vim.keymap.set("n", 'jj', '<Plug>(easymotion-j)',{remap = false, silent = true})
 
