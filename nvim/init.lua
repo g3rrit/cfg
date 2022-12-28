@@ -38,6 +38,14 @@ Plug 'nvim-lua/plenary.nvim'
 -- Scala LSP
 Plug('scalameta/nvim-metals', { ['requires'] = { "nvim-lua/plenary.nvim" }})
 
+-- tmux integration
+Plug 'christoomey/vim-tmux-navigator'
+
+-- Inline color visualization
+Plug 'ap/vim-css-color'
+
+-- Parenthesis colors
+Plug 'frazrepo/vim-rainbow'
 
 vim.call('plug#end')
 --------------------
@@ -69,6 +77,9 @@ vim.g.mapleader = "<space>"
 
 -- Set left margin (used by lsp) to always be present
 vim.opt.signcolumn = "yes:1"
+
+-- Add parenthisis rainbow colors
+vim.g.rainbow_active = 1
 
 -- Automatically reload files once branch is changed
 -- TODO
