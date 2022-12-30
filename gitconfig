@@ -3,48 +3,102 @@
 #   path = /usr/local/cfg/gitconfig
 
 [alias]
+    # Branch
     br  = branch
-    co  = checkout                              # Checkout a branch
-    cob = checkout -b                           # Checkout a new not yet existing branch
-    cp  = cherry-pick                           # Cherry pick change
-    f   = fetch                                 # Fetch from a repository
-    c   = commit                                # Commit you changes
-    p   = push                                  # Push you changes to a remote
-    ba  = branch -a                             # List both remote-tracking branches and local branches.
-    dc  = diff --cached                         # Display the staged changes
-    ca  = commit --amend --date=now             # Ammend commit with new date
-    aa  = add --all                             # Add all changes from anywhere
-    can  = commit --amend --no-edit             # Ammend commit and dont edit commit message
-    rb  = rebase                                # Rebase
-    last = log -1                               # Log last commit
+
+    # Checkout a branch
+    co  = checkout
+
+    # Checkout a new not yet existing branch
+    cob = checkout -b
+
+    # Cherry pick change
+    cp  = cherry-pick
+
+    # Fetch from a repository
+    f   = fetch
+
+    # Commit you changes
+    c   = commit
+
+    # Push you changes to a remote
+    p   = push
+
+    # List both remote-tracking branches and local branches.
+    ba  = branch -a
+
+    # Display the staged changes
+    dc  = diff --cached
+
+    # Ammend commit with new date
+    ca  = commit --amend --date=now
+
+    # Add all changes from anywhere
+    aa  = add --all
+
+    # Ammend commit and dont edit commit message
+    can  = commit --amend --no-edit
+
+    # Rebase
+    rb  = rebase
+
+    # Log last commit
+    last = log -1
+
+    # Short status
     st = status -sb
+
+    # Show diff of staged files
     diffs = diff --staged
+
+    # Remove also from git repository
     rmc = rm -r --cached
+
+    # Add -> Commit -> Ammend -> Force push
     capf = ! git add . && git commit --amend --no-edit && git push -f
 
+    # Pretty log
     lp = log --pretty=oneline --abbrev-commit
+
+    # Pretty log of last five commits
     ll = log --pretty=oneline --abbrev-commit -5
 
-    tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    # Pretty log tree
+    tree = log --graph --abbrev-commit --decorate \
+        --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+
+    # Reverse log from a specific commit. Usage: git rlog <commit-ish>
     rlog = "!f() { c1=$1; c2=$2; shift 2; git log --reverse --ancestry-path ${c1}^..${c2} $@; }; f"
 
+    # Change branch with fzf
     cb  = ! git branch | fzf | xargs git checkout
 
+    # Add new commit with a template of the previous commit message
     recommit = commit --reedit-message=HEAD --date=now
     rc = commit --reedit-message=HEAD --date=now
 
+    # TODO: This currently does not work
     rmgone = "! sh /usr/local/cfg/scripts/git_rm_gone"
 
+    # Diff with meld
     mdiff = difftool -t meld --dir-diff
 
+    # Push origin head
     ph = push origin HEAD
 
+    # Push to Gerrit
     pgr = "!f() {\
              [[ -z $1 ]] && { echo "Specify branch"; exit -1; };\
              [[ -z $2 ]] && { echo "Specify topic"; exit -1; };\
              [[ ! $2 =~ "REV|WIP" ]] && { echo "Invalid topic [$2]"; exit -1; };\
              git push gerrit HEAD:refs/for/$1%topic=$2;\
            }; f"
+
+    # Hard reset the current state of the repository to HEAD
+    purge = ! git reset --hard HEAD && git clean -fd
+
+    # Worktree
+    wt = worktree
 
 [pull]
     rebase = true
