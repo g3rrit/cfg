@@ -4,43 +4,43 @@
 
 [alias]
     # Branch
-    br  = branch
+    br = branch
 
     # Checkout a branch
-    co  = checkout
+    co = checkout
 
     # Checkout a new not yet existing branch
     cob = checkout -b
 
     # Cherry pick change
-    cp  = cherry-pick
+    cp = cherry-pick
 
     # Fetch from a repository
-    f   = fetch
+    f = fetch
 
     # Commit you changes
-    c   = commit
+    c = commit
 
     # Push you changes to a remote
-    p   = push
+    p = push
 
     # List both remote-tracking branches and local branches.
-    ba  = branch -a
+    ba = branch -a
 
     # Display the staged changes
-    dc  = diff --cached
+    dc = diff --cached
 
     # Ammend commit with new date
-    ca  = commit --amend --date=now
+    ca = commit --amend --date=now
 
     # Add all changes from anywhere
-    aa  = add --all
+    aa = add --all
 
     # Ammend commit and dont edit commit message
-    can  = commit --amend --no-edit
+    can = commit --amend --no-edit
 
     # Rebase
-    rb  = rebase
+    rb = rebase
 
     # Log last commit
     last = log -1
@@ -99,6 +99,9 @@
 
     # Worktree
     wt = worktree
+
+    # Reset everything to the current state of the upstream branch
+    ru = !git reset --hard HEAD && git clean -fd && git fetch --all && git reset --hard @{u}
 
 [pull]
     rebase = true
