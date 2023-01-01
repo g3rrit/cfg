@@ -38,7 +38,7 @@ Plug 'nvim-lua/plenary.nvim'
 -- Scala LSP
 Plug('scalameta/nvim-metals', { ['requires'] = { "nvim-lua/plenary.nvim" }})
 
--- tmux integration
+-- Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
 
 -- Inline color visualization
@@ -46,6 +46,9 @@ Plug 'ap/vim-css-color'
 
 -- Parenthesis colors
 Plug 'frazrepo/vim-rainbow'
+
+-- Latex
+Plug 'lervag/vimtex'
 
 vim.call('plug#end')
 --------------------
@@ -193,4 +196,5 @@ require("keybindings")
 require("commands")
 require("lsp_setup")
 require("cmp_setup")
+require("tex_setup")
 
