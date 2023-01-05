@@ -171,6 +171,9 @@ vim.opt.showmatch = true
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
+-- Change timeoutlen
+vim.opt.timeoutlen = 1000
+
 -- TODO
 -- map <leader>l :set list!<CR> " Toggle tabs and EOL
 

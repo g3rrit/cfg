@@ -11,6 +11,7 @@ function M.make_scratch()
     vim.bo[0].swapfile=false
 end
 
+
 function M.slice(tbl, first, last, step)
   local sliced = {}
 
