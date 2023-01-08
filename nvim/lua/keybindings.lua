@@ -65,3 +65,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Easymotion
 vim.keymap.set("n", '<space>', '<Plug>(easymotion-prefix)',{remap = false, silent = true})
+
+-- Nerdtree
+vim.keymap.set("n", '<space>n', ':NERDTreeTabsToggle<CR>',{remap = false, silent = true})

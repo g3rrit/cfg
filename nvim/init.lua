@@ -15,6 +15,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neovim/nvim-lspconfig'
 
+-- Nerdtree
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
 -- Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
