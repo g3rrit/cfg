@@ -18,6 +18,9 @@
     # Fetch from a repository
     f = fetch
 
+    # Fetch from a repository on all remotes
+    fa = fetch --all
+
     # Commit you changes
     c = commit
 

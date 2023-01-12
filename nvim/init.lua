@@ -32,6 +32,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
@@ -89,17 +90,8 @@ vim.opt.signcolumn = "yes:1"
 vim.g.rainbow_active = 1
 
 -- Automatically reload files once branch is changed
--- TODO
--- vim.opt.autoread = true
--- au CursorHold,CursorHoldI * checktime
--- au FocusGained,BufEnter * :checktime
--- Trigger `autoread` when files changes on disk
--- " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
--- " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
--- autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
--- Notification after file change
--- https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
--- autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+-- In order for this to work, some autocommands within lua/auto_cmd.lua are also required
+vim.opt.autoread = true
 
 -- Security
 vim.opt.modelines = 0
@@ -204,4 +196,5 @@ require("commands")
 require("lsp_setup")
 require("cmp_setup")
 require("tex_setup")
+require("auto_cmd")
 
