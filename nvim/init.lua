@@ -79,10 +79,6 @@ vim.opt.background = "light"
 vim.g.gruvbox_contrast_light = "hard"
 vim.cmd("colorscheme gruvbox")
 
--- Set leader key
-vim.keymap.set("n", "<space>", "<Nop>", { silent = true, remap = false })
-vim.g.mapleader = "<space>"
-
 -- Set left margin (used by lsp) to always be present
 vim.opt.signcolumn = "yes:1"
 
