@@ -52,6 +52,28 @@ awk 'BEGIN{
 }'
 ```
 
+## Installing luarocks
+
+In order to install luarocks use:
+```
+luarocks install <package-name> --lua-version 5.1 --tree rocks
+```
+or rather install packages from the rockspec file:
+```
+luarocks --lua-version 5.1 --tree rocks install --only-deps nvim-dev-1.rockspec
+```
+
+Afterwards sources and libraries have to be symlinked:
+```
+sudo ln -s /usr/local/cfg/nvim/rocks/share/lua/5.1 /usr/local/share/lua/5.1
+sudo ln -s /usr/local/cfg/nvim/rocks/lib/lua/5.1 /usr/local/lib/lua/5.1
+```
+
+For `luasec` the openssl directory might need to be set:
+```
+luarocks install luasec --lua-version 5.1 --tree rocks OPENSSL_DIR=/opt/homebrew/opt/openssl
+```
+
 ### Notes
 
 Run `verb set fo` to figure out where `fo` was last set

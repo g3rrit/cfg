@@ -54,9 +54,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         }
 
         function keymap_set(mapping, action, check)
-            if check then
+            -- if check then
                 vim.keymap.set('n', mapping, action, opts)
-            end
+            -- end
         end
 
         keymap_set('gh', vim.lsp.buf.hover, client.server_capabilities.hoverProvider)
@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- TODO: fix this
         -- keymap_set('<space>ee',vim.lsp.util.show_line_diagnostics, client.server_capabilities.show_line_diagnosticsProvider)
         keymap_set('<space>ar',vim.lsp.buf.rename, client.server_capabilities.renameProvider)
-        keymap_set('<space>=', vim.lsp.buf.formatting, client.server_capabilities.formattingProvider)
+        keymap_set('<space>=', vim.lsp.buf.format, client.server_capabilities.formatProvider)
         keymap_set('<space>ai',vim.lsp.buf.incoming_calls, client.server_capabilities.incoming_callsProvider)
         keymap_set('<space>ao',vim.lsp.buf.outgoing_calls, client.server_capabilities.outgoing_callsProvider)
     end,

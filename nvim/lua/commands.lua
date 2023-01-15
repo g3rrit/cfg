@@ -1,4 +1,5 @@
 local utils = require "utils"
+local chat = require "chat"
 
 vim.api.nvim_create_user_command(
     'ExecCmd',
@@ -20,6 +21,14 @@ vim.api.nvim_create_user_command(
     { nargs = "+", force = true }
 )
 
+vim.api.nvim_create_user_command(
+    'ChatGPT',
+    function(opts)
+        chat.rep()
+    end,
+    { nargs = 0, force = true }
+)
+
 -- DEBUG
 
 vim.api.nvim_create_user_command(
@@ -33,6 +42,7 @@ vim.api.nvim_create_user_command(
         require("utils")
         require("keybindings")
         require("commands")
+        require("buffer_rep")
     end,
     { nargs = 0, force = true }
 )

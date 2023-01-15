@@ -1,4 +1,3 @@
-
 local loop = vim.loop
 local api = vim.api
 
@@ -6,20 +5,32 @@ local M = {}
 
 function M.make_scratch()
     api.nvim_command('enew')
-    vim.bo[0].buftype=nofile
-    vim.bo[0].bufhidden=hide
-    vim.bo[0].swapfile=false
+    vim.bo[0].buftype = nofile
+    vim.bo[0].bufhidden = hide
+    vim.bo[0].swapfile = false
 end
 
+function string:split(delimiter)
+    local result               = {}
+    local from                 = 1
+    local delim_from, delim_to = string.find(self, delimiter, from)
+    while delim_from do
+        table.insert(result, string.sub(self, from, delim_from - 1))
+        from                 = delim_to + 1
+        delim_from, delim_to = string.find(self, delimiter, from)
+    end
+    table.insert(result, string.sub(self, from))
+    return result
+end
 
 function M.slice(tbl, first, last, step)
-  local sliced = {}
+    local sliced = {}
 
-  for i = first or 1, last or #tbl, step or 1 do
-    sliced[#sliced+1] = tbl[i]
-  end
+    for i = first or 1, last or #tbl, step or 1 do
+        sliced[#sliced + 1] = tbl[i]
+    end
 
-  return sliced
+    return sliced
 end
 
 --- Create a popup window.
@@ -45,7 +56,7 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
     if kill_on_done then
         close_string = string.format(":%dbw<CR>", buf)
     else
-        close_string =":close<CR>"
+        close_string = ":close<CR>"
     end
     api.nvim_buf_set_keymap(
         buf,
@@ -53,9 +64,9 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
         "<ESC>",
         close_string,
         {
-            silent=true,
-            nowait=true,
-            noremap=true
+            silent = true,
+            nowait = true,
+            noremap = true
         }
     )
 
@@ -64,13 +75,13 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
         buf,
         true,
         {
-            relative="editor",
-            row=ypos,
-            col=xpos,
-            width=width,
-            height=height,
-            border="rounded",
-            style="minimal"
+            relative = "editor",
+            row = ypos,
+            col = xpos,
+            width = width,
+            height = height,
+            border = "rounded",
+            style = "minimal"
         }
     )
     api.nvim_win_set_option(win, "winhl", "Normal:")
@@ -82,7 +93,7 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
 
     local function onread(err, data)
         if err then
-            print('ERROR: '..err)
+            print('ERROR: ' .. err)
         end
         if data then
             local vals = vim.split(data, "\n")
@@ -116,7 +127,7 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
 
         if not handle:is_closing() then
             if kill then
-                print("Killed: "..cmd)
+                print("Killed: " .. cmd)
                 handle:kill()
             else
                 handle:close()
@@ -126,7 +137,7 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
 
     -- :<buf>bw[ipeout] to kill buffer
     vim.api.nvim_buf_attach(buf, false, {
-        on_detach=function()
+        on_detach = function()
             remove_process(true)
         end
     })
@@ -135,7 +146,7 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
         cmd,
         {
             args = opt_args,
-            stdio = {nil,stdout,stderr}
+            stdio = { nil, stdout, stderr }
         },
         vim.schedule_wrap(function()
             remove_process(false)
@@ -150,6 +161,4 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
 
 end
 
-
 return M
-
