@@ -1,12 +1,12 @@
-local loop = vim.loop
+local uv = vim.loop
 local api = vim.api
 
 local M = {}
 
 function M.make_scratch()
     api.nvim_command('enew')
-    vim.bo[0].buftype = nofile
-    vim.bo[0].bufhidden = hide
+    vim.bo[0].buftype = "nofile"
+    vim.bo[0].bufhidden = "hide"
     vim.bo[0].swapfile = false
 end
 
@@ -88,8 +88,8 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
 
     local line_num = 0
 
-    local stdout = loop.new_pipe(false)
-    local stderr = loop.new_pipe(false)
+    local stdout = uv.new_pipe(false)
+    local stderr = uv.new_pipe(false)
 
     local function onread(err, data)
         if err then
@@ -142,7 +142,7 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
         end
     })
 
-    handle = loop.spawn(
+    handle = uv.spawn(
         cmd,
         {
             args = opt_args,
@@ -153,8 +153,8 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
         end
         )
     )
-    loop.read_start(stdout, onread)
-    loop.read_start(stderr, onread)
+    uv.read_start(stdout, onread)
+    uv.read_start(stderr, onread)
 
     local pid = handle:get_pid()
     api.nvim_buf_set_name(buf, string.format("[Command](%d) :: %s", pid, cmd))

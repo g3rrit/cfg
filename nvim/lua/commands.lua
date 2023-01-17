@@ -1,5 +1,6 @@
 local utils = require "utils"
 local chat = require "chat"
+local buffer_rep = require "buffer_rep"
 
 vim.api.nvim_create_user_command(
     'ExecCmd',
@@ -25,6 +26,17 @@ vim.api.nvim_create_user_command(
     'ChatGPT',
     function(opts)
         chat.rep()
+    end,
+    { nargs = 0, force = true }
+)
+
+vim.api.nvim_create_user_command(
+    'TestBufRep',
+    function(opts)
+        buffer_rep.rep(function(text)
+            text = string.gsub(text, "\n", " ")
+            return { text }
+        end)
     end,
     { nargs = 0, force = true }
 )
