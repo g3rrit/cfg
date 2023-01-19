@@ -86,7 +86,7 @@ vim.opt.signcolumn = "yes:1"
 vim.g.rainbow_active = 1
 
 -- Automatically reload files once branch is changed
--- In order for this to work, some autocommands within lua/auto_cmd.lua are also required
+-- In order for this to work, some autocommands within lua/auto_cmds.lua are also required
 vim.opt.autoread = true
 
 -- Security
@@ -192,5 +192,5 @@ require("commands")
 require("lsp_setup")
 require("cmp_setup")
 require("tex_setup")
-require("auto_cmd")
+require("auto_cmds")
 

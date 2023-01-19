@@ -3,19 +3,7 @@ local api = vim.api
 
 require "utils"
 
-local M = {}
-
-function M.rep(fn, sep)
-
-    if sep == nil then
-        sep = "\n"
-    end
-
-    local startl = api.nvim_buf_get_mark(0, "<")[1] - 1
-    local endl = api.nvim_buf_get_mark(0, ">")[1] - 1
-
-    print(startl)
-    print(endl)
+local function search_marker_text(startl, endl)
 
     local selection = api.nvim_buf_get_text(0, startl, 0, endl, -1, {})
 
@@ -42,8 +30,30 @@ function M.rep(fn, sep)
 
     end
 
+    return text_input, output_line
+end
+
+local function rep(fn, args, sep)
+
+    if args == nil then
+        args = {}
+    end
+
+    if sep == nil then
+        sep = "\n"
+    end
+
+    local startl = api.nvim_buf_get_mark(0, "<")[1] - 1
+    local endl = api.nvim_buf_get_mark(0, ">")[1] - 1
+
+    local text_input, output_line = search_marker_text(startl, endl)
+
     if #text_input == 0 or output_line == -1 then
-        print("ERROR: No start (>>>) or end (===) token found in selection")
+        text_input, output_line = search_marker_text(0, vim.api.nvim_buf_line_count(0) - 1)
+    end
+
+    if #text_input == 0 or output_line == -1 then
+        print("ERROR: No text, start (>>>) or end (===) token found")
         return
     end
 
@@ -60,9 +70,8 @@ function M.rep(fn, sep)
         acb:close()
     end))
 
-    uv.new_thread(fn, text, acb)
+    uv.new_thread(fn, text, acb, unpack(args))
 
 end
 
-return M
-
+return rep

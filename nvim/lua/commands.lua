@@ -1,6 +1,6 @@
 local utils = require "utils"
-local chat = require "chat"
-local buffer_rep = require "buffer_rep"
+local rep = require "rep"
+local rep_cmds = require "rep_cmds"
 
 vim.api.nvim_create_user_command(
     'ExecCmd',
@@ -25,15 +25,15 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
     'ChatGPT',
     function(opts)
-        chat.rep()
+        rep_cmds.chat_rep(opts.fargs)
     end,
-    { nargs = 0, force = true }
+    { nargs = "*", force = true }
 )
 
 vim.api.nvim_create_user_command(
     'TestBufRep',
-    function(opts)
-        buffer_rep.rep(function(text)
+    function(_)
+        rep(function(text)
             text = string.gsub(text, "\n", " ")
             return { text }
         end)
@@ -47,14 +47,25 @@ vim.api.nvim_create_user_command(
     'ReloadLua',
     function()
         for k in pairs(package.loaded) do
-            if k:match("^utils") or k:match("^commands") or k:match("^keybindings") then
+            if (
+                k:match("^utils") or
+                k:match("^commands") or
+                k:match("^keybindings") or
+                k:match("^rep") or
+                k:match("^rep_cmds") or
+                k:match("^auto_cmds") or
+                k:match("^chat")
+            ) then
                 package.loaded[k] = nil
             end
         end
         require("utils")
         require("keybindings")
         require("commands")
-        require("buffer_rep")
+        require("rep")
+        require("rep_cmds")
+        require("auto_cmds")
+        require("chat")
     end,
     { nargs = 0, force = true }
 )
