@@ -3,6 +3,8 @@ local api = vim.api
 
 require "utils"
 
+local M = {}
+
 local function search_marker_text(startl, endl)
 
     local selection = api.nvim_buf_get_text(0, startl, 0, endl, -1, {})
@@ -33,11 +35,7 @@ local function search_marker_text(startl, endl)
     return text_input, output_line
 end
 
-local function rep(fn, args, sep)
-
-    if args == nil then
-        args = {}
-    end
+local function get_text(sep)
 
     if sep == nil then
         sep = "\n"
@@ -54,10 +52,26 @@ local function rep(fn, args, sep)
 
     if #text_input == 0 or output_line == -1 then
         print("ERROR: No text, start (>>>) or end (===) token found")
-        return
+        return nil, nil
     end
 
     local text = table.concat(text_input, sep)
+
+    return text, output_line
+
+end
+
+function M.rep(fn, args, sep)
+
+    if args == nil then
+        args = {}
+    end
+
+    text, output_line = get_text(sep)
+
+    if text == nil then
+        return
+    end
 
     local acb
     acb = uv.new_async(vim.schedule_wrap(function(res)
@@ -74,4 +88,49 @@ local function rep(fn, args, sep)
 
 end
 
-return rep
+function M.rep_proc(fn, args, sep)
+
+    if args == nil then
+        args = {}
+    end
+
+    local text, output_line = get_text(sep)
+
+    if text == nil then
+        return
+    end
+
+    local stdout = uv.new_pipe(false)
+    local stderr = uv.new_pipe(false)
+
+    local function onread(err, data)
+        if err then
+            print('ERROR: ' .. err)
+        end
+        if data then
+            local lines = {}
+            for s in data:gmatch("[^\r\n]+") do
+                table.insert(lines, s)
+            end
+            table.insert(lines, "<<<")
+            vim.schedule(function()
+                vim.api.nvim_buf_set_lines(0, output_line, output_line, true, lines)
+            end)
+        end
+    end
+
+    local cmd, cmd_args = fn(text, unpack(args))
+
+    uv.spawn(
+        cmd,
+        {
+            args = cmd_args,
+            stdio = { nil, stdout, stderr }
+        }
+    )
+    uv.read_start(stdout, onread)
+    uv.read_start(stderr, onread)
+
+end
+
+return M

@@ -4,7 +4,7 @@ local M = {}
 
 function M.chat_rep(args)
 
-    rep(function(text_input, cb, max_tokens)
+    rep.rep(function(text_input, cb, max_tokens)
 
         local chat = require "chat"
         local uv = vim.loop
@@ -13,7 +13,7 @@ function M.chat_rep(args)
             max_tokens = tonumber(max_tokens)
         end
 
-        print("Calling ChatGPT :: ", max_tokens)
+        print("Calling ChatGPT ::", max_tokens)
         local response = chat.get_completions(text_input, max_tokens)
 
         if response == nil then
@@ -38,6 +38,21 @@ function M.chat_rep(args)
         local res = table.concat(lines, "\n")
 
         uv.async_send(cb, res)
+    end, args)
+end
+
+function M.trans_rep(args)
+    rep.rep_proc(function(text_input, src, dst)
+
+        if src == nil then
+            src = "en"
+        end
+
+        if dst == nil then
+            dst = "de"
+        end
+
+        return "trans", { "-b", "-s", src, "-t", dst, text_input }
     end, args)
 end
 

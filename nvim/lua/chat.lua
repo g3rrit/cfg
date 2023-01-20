@@ -1,7 +1,6 @@
 local http = require "socket.http"
 local ltn12 = require "ltn12"
 local json = require "json"
-local rep = require "rep"
 
 local api_key = os.getenv("OPENAI_API_KEY")
 

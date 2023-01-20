@@ -23,6 +23,17 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_user_command(
+    'TestBufRep',
+    function(_)
+        rep.rep(function(text)
+            text = string.gsub(text, "\n", " ")
+            return { text }
+        end)
+    end,
+    { nargs = 0, force = true }
+)
+
+vim.api.nvim_create_user_command(
     'ChatGPT',
     function(opts)
         rep_cmds.chat_rep(opts.fargs)
@@ -31,14 +42,11 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_user_command(
-    'TestBufRep',
-    function(_)
-        rep(function(text)
-            text = string.gsub(text, "\n", " ")
-            return { text }
-        end)
+    'Trans',
+    function(opts)
+        rep_cmds.trans_rep(opts.fargs)
     end,
-    { nargs = 0, force = true }
+    { nargs = "*", force = true }
 )
 
 -- DEBUG

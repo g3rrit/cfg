@@ -110,9 +110,6 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
         end
     end
 
-    -- convert vaargs to array
-    -- local opt_args={...}
-
     local handle = nil
 
     local function remove_process(kill)
