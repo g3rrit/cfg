@@ -49,6 +49,30 @@ vim.api.nvim_create_user_command(
     { nargs = "*", force = true }
 )
 
+vim.api.nvim_create_user_command(
+    'TransW',
+    function(opts)
+        local word, src, dst = unpack(opts.fargs)
+        if src == nil then
+            src = "no"
+        end
+        if dst == nil then
+            dst = "en"
+        end
+        local res_stdout, _, code = utils.run_sync(
+            "trans", { "-b", "-s", src, "-t", dst, word }
+        )
+        if code ~= 0 then
+            print("ERROR: executing trans")
+        else
+            print(res_stdout)
+        end
+    end,
+    { nargs = "+", force = true }
+)
+
+
+
 -- DEBUG
 
 vim.api.nvim_create_user_command(

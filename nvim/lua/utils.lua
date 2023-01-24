@@ -1,3 +1,5 @@
+local job = require 'plenary.job'
+
 local uv = vim.loop
 local api = vim.api
 
@@ -156,6 +158,17 @@ function M.exec_cmd(kill_on_done, cmd, opt_args)
     local pid = handle:get_pid()
     api.nvim_buf_set_name(buf, string.format("[Command](%d) :: %s", pid, cmd))
 
+end
+
+function M.run_sync(cmd, args)
+    local result, code = job:new({
+      command = cmd,
+      args = args,
+    }):sync()
+
+
+    local res_stdout, res_stderr = unpack(result)
+    return res_stdout, res_stderr, code
 end
 
 return M

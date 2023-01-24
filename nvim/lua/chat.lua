@@ -9,7 +9,7 @@ local M = {}
 function M.get_completions(prompt, max_tokens, temperature)
 
     if max_tokens == nil then
-        max_tokens = 100
+        max_tokens = 4000
     end
 
     if temperature == nil then
