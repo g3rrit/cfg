@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             silent = true
         }
 
-        function keymap_set(mapping, action, check)
+        local function keymap_set(mapping, action, check)
             -- if check then
                 vim.keymap.set('n', mapping, action, opts)
             -- end

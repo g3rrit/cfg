@@ -85,3 +85,8 @@ Run `verb set fo` to figure out where `fo` was last set
 - `ctrl+o`: previous jumplist
 - `ctrl+i`: next jumplist
 
+### Motions
+
+- `_ - +`: jump to first non whitespace character of current/previous/next line
+- `I`: Insert at the first non whitespace character
+

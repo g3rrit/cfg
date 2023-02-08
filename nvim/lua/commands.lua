@@ -2,6 +2,19 @@ local utils = require "utils"
 local rep = require "rep"
 local rep_cmds = require "rep_cmds"
 
+-- Completion Functions
+-- currently there seems to be no easy way to define the completion functions in lua
+vim.api.nvim_exec([[
+
+function! CompleteOpenF(al, cl, cp)
+    let args = [ "virc", "vimd", "zshrc", "bashrc" ]
+    return join(args, "\n")
+endfunction
+
+]], false)
+--
+
+
 vim.api.nvim_create_user_command(
     'ExecCmd',
     function(opts)
@@ -71,7 +84,44 @@ vim.api.nvim_create_user_command(
     { nargs = "+", force = true }
 )
 
+function COMPLETE_OPENF(arg_lead, cmd_line, cursor_pos)
+                return "foo"
+                -- return table.concat({ "foo", "bar" }, "\n")
+end
 
+
+vim.api.nvim_create_user_command(
+    "OpenF",
+    function(opts)
+        local arg = opts.fargs[1]
+        local f = nil
+
+        if arg == "virc" then
+            f = "~/.config/nvim/init.lua"
+        end
+        if arg == "vimd" then
+            f = "~/.config/nvim/Readme.md"
+        end
+        if arg == "zshrc" then
+            f = "~/.zshrc"
+        end
+        if arg == "bashrc" then
+            f = "~/.bashrc"
+        end
+
+        if f == nil then
+            print("Invalid argument", arg)
+        else
+            vim.cmd("tabnew " .. f)
+        end
+
+    end,
+    {
+        nargs = 1,
+        force = true,
+        complete = "custom,CompleteOpenF"
+    }
+)
 
 -- DEBUG
 

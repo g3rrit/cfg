@@ -71,7 +71,18 @@ lspconfig.jdtls.setup({})
 lspconfig.denols.setup({})
 
 -- Python
-lspconfig.pylsp.setup({})
+lspconfig.pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = {},
+                    maxLineLength = 120
+                }
+            }
+        }
+    }
+})
 
 -- Scala
 

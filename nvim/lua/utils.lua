@@ -12,6 +12,7 @@ function M.make_scratch()
     vim.bo[0].swapfile = false
 end
 
+-- String Functions
 function string:split(delimiter)
     local result               = {}
     local from                 = 1
@@ -23,6 +24,15 @@ function string:split(delimiter)
     end
     table.insert(result, string.sub(self, from))
     return result
+end
+
+function table:contains(val)
+    for _, _val in ipairs(self) do
+        if val == _val then
+            return true
+        end
+    end
+    return false
 end
 
 function M.slice(tbl, first, last, step)

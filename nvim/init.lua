@@ -1,5 +1,5 @@
 -- Flags
-ENABLE_SPELL = false
+ENABLE_SPELL = true
 
 -- Install plugins
 local Plug = vim.fn['plug#']
@@ -103,10 +103,10 @@ vim.opt.visualbell = true
 
 -- Spellchecking
 if ENABLE_SPELL then
+    vim.opt.spell = true
     vim.opt.spelllang = "en"
-    vim.opt.spellfile = "/usr/local/conf/nvim/spell/en.utf-8.add"
-    vim.opt.spellspell = true
-    -- Add word to spell-file `fg`
+    vim.opt.spellfile = "/usr/local/cfg/nvim/spell/en.utf-8.add"
+    -- Add word to spell-file `zg`
     -- Go to next and previous misspelled word `]s`, `[s`
 end
 
