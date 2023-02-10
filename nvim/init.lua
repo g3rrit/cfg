@@ -34,8 +34,10 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+-- Plug 'hrsh7th/cmp-vsnip'
+-- Plug 'hrsh7th/vim-vsnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 -- Utils
 Plug 'nvim-lua/plenary.nvim'
@@ -166,6 +168,10 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 -- Change timeoutlen
 vim.opt.timeoutlen = 1000
 
+-- vsnip directory
+-- vim.g.vsnip_snippet_dir = "/usr/local/cfg/nvim/vsnip"
+
+
 -- TODO
 -- map <leader>l :set list!<CR> " Toggle tabs and EOL
 
@@ -193,4 +199,4 @@ require("lsp_setup")
 require("cmp_setup")
 require("tex_setup")
 require("auto_cmds")
-
+require("luasnip_setup")
