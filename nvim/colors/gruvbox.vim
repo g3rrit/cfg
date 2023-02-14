@@ -65,18 +65,6 @@ if !exists('g:gruvbox_invert_indent_guides')
   let g:gruvbox_invert_indent_guides=0
 endif
 
-if exists('g:gruvbox_contrast')
-  echo 'g:gruvbox_contrast is deprecated; use g:gruvbox_contrast_light and g:gruvbox_contrast_dark instead'
-endif
-
-if !exists('g:gruvbox_contrast_dark')
-  let g:gruvbox_contrast_dark='medium'
-endif
-
-if !exists('g:gruvbox_contrast_light')
-  let g:gruvbox_contrast_light='medium'
-endif
-
 let s:is_dark=(&background == 'dark')
 
 " }}}
@@ -173,70 +161,31 @@ let s:vim_bg = ['bg', 'bg']
 let s:vim_fg = ['fg', 'fg']
 let s:none = ['NONE', 'NONE']
 
-" determine relative colors
-if s:is_dark
-  let s:bg0  = s:gb.dark0
-  if g:gruvbox_contrast_dark == 'soft'
-    let s:bg0  = s:gb.dark0_soft
-  elseif g:gruvbox_contrast_dark == 'hard'
-    let s:bg0  = s:gb.dark0_hard
-  endif
+let s:bg0  = s:gb.light0_hard
 
-  let s:bg1  = s:gb.dark1
-  let s:bg2  = s:gb.dark2
-  let s:bg3  = s:gb.dark3
-  let s:bg4  = s:gb.dark4
-  let s:bg5  = s:gb.dark5
+let s:bg1  = s:gb.light1
+let s:bg2  = s:gb.light2
+let s:bg3  = s:gb.light3
+let s:bg4  = s:gb.light4
+let s:bg5  = s:gb.light5
 
-  let s:gray = s:gb.gray_245
+let s:gray = s:gb.gray_244
 
-  let s:fg0 = s:gb.light0
-  let s:fg1 = s:gb.light1
-  let s:fg2 = s:gb.light2
-  let s:fg3 = s:gb.light3
-  let s:fg4 = s:gb.light4
+let s:fg0 = s:gb.dark0
+let s:fg1 = s:gb.dark1
+let s:fg2 = s:gb.dark2
+let s:fg3 = s:gb.dark3
+let s:fg4 = s:gb.dark4
 
-  let s:fg4_256 = s:gb.light4_256
+let s:fg4_256 = s:gb.dark4_256
 
-  let s:red    = s:gb.bright_red
-  let s:green  = s:gb.bright_green
-  let s:yellow = s:gb.bright_yellow
-  let s:blue   = s:gb.bright_blue
-  let s:purple = s:gb.bright_purple
-  let s:aqua   = s:gb.bright_aqua
-  let s:orange = s:gb.bright_orange
-else
-  let s:bg0  = s:gb.light0
-  if g:gruvbox_contrast_light == 'soft'
-    let s:bg0  = s:gb.light0_soft
-  elseif g:gruvbox_contrast_light == 'hard'
-    let s:bg0  = s:gb.light0_hard
-  endif
-
-  let s:bg1  = s:gb.light1
-  let s:bg2  = s:gb.light2
-  let s:bg3  = s:gb.light3
-  let s:bg4  = s:gb.light4
-  let s:bg5  = s:gb.light5
-
-  let s:gray = s:gb.gray_244
-
-  let s:fg0 = s:gb.dark0
-  let s:fg1 = s:gb.dark1
-  let s:fg2 = s:gb.dark2
-  let s:fg3 = s:gb.dark3
-  let s:fg4 = s:gb.dark4
-
-  let s:fg4_256 = s:gb.dark4_256
-
-  let s:red    = s:gb.faded_red
-  let s:green  = s:gb.faded_green
-  let s:yellow = s:gb.faded_yellow
-  let s:blue   = s:gb.faded_blue
-  let s:purple = s:gb.faded_purple
-  let s:aqua   = s:gb.faded_aqua
-  let s:orange = s:gb.faded_orange
-endif
+let s:red    = s:gb.faded_red
+let s:green  = s:gb.faded_green
+let s:yellow = s:gb.faded_yellow
+let s:blue   = s:gb.faded_blue
+let s:purple = s:gb.faded_purple
+let s:aqua   = s:gb.faded_aqua
+let s:orange = s:gb.faded_orange
 
 " reset to 16 colors fallback
 if g:gruvbox_termcolors == 16
@@ -924,6 +873,52 @@ call s:HL('CocErrorHighlight', s:none, s:none, s:undercurl, s:red)
 call s:HL('CocWarningHighlight', s:none, s:none, s:undercurl, s:orange)
 call s:HL('CocInfoHighlight', s:none, s:none, s:undercurl, s:yellow)
 call s:HL('CocHintHighlight', s:none, s:none, s:undercurl, s:blue)
+
+" }}}
+
+" coc.nvim: {{{
+
+hi! link DapUILineNumber Normal
+hi! link DapUIBreakpointsLine Normal
+hi! link DapUIVariable Normal
+hi! link DapUIStop Normal
+hi! link DapUIType Normal
+hi! link DapUIScope Normal
+hi! link DapUIValue Normal
+hi! link DapUINormal Normal
+hi! link DapUISource Normal
+hi! link DapUIStopNC Normal
+hi! link DapUIThread Normal
+hi! link DapUIRestart Normal
+hi! link DapUIStepOut Normal
+hi! link DapUINormalNC Normal
+hi! link DapUIStepBack Normal
+hi! link DapUIStepInto Normal
+hi! link DapUIStepOver Normal
+hi! link DapUIFrameName Normal
+hi! link DapUIPlayPause Normal
+hi! link DapUIRestartNC Normal
+hi! link DapUIStepOutNC Normal
+hi! link DapUIWinSelect Normal
+hi! link DapUIDecoration Normal
+hi! link DapUIStepBackNC Normal
+hi! link DapUIStepIntoNC Normal
+hi! link DapUIStepOverNC Normal
+hi! link DapUIEndofBuffer Normal
+hi! link DapUIFloatBorder Normal
+hi! link DapUIFloatNormal Normal
+hi! link DapUIPlayPauseNC Normal
+hi! link DapUIUnavailable Normal
+hi! link DapUIWatchesEmpty Normal
+hi! link DapUIWatchesError Normal
+hi! link DapUIWatchesValue Normal
+hi! link DapUIModifiedValue Normal
+hi! link DapUIStoppedThread Normal
+hi! link DapUIUnavailableNC Normal
+hi! link DapUIBreakpointsInfo Normal
+hi! link DapUIBreakpointsPath Normal
+hi! link DapUICurrentFrameName Normal
+hi! link DapUIBreakpointsCurrentLine Normal
 
 " }}}
 
