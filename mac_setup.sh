@@ -146,6 +146,10 @@ for package in "${dev_utils[@]}"; do
   brew install "${package}"
 done
 
+info "Installing fonts..."
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
+
 info "💻 Changing macOS's settings..."
 # Maximize windows on double clicking them:
 defaults write -g AppleActionOnDoubleClick 'Maximize'
