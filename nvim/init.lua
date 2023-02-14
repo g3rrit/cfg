@@ -57,6 +57,10 @@ Plug 'frazrepo/vim-rainbow'
 -- Latex
 Plug 'lervag/vimtex'
 
+-- Debug Adapter
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
 vim.call('plug#end')
 --------------------
 
@@ -200,3 +204,4 @@ require("cmp_setup")
 require("tex_setup")
 require("auto_cmds")
 require("luasnip_setup")
+require("dap_setup")
