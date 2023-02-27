@@ -1,4 +1,3 @@
-
 local lspconfig = require("lspconfig")
 local api = vim.api
 
@@ -13,7 +12,7 @@ local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Change border of documentation hover window, See https://github.com/neovim/neovim/pull/13998.
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
+    border = "rounded",
 })
 
 -- change boarders
@@ -61,7 +60,11 @@ lspconfig.ocamllsp.setup({
 })
 
 -- c/c++
-lspconfig.ccls.setup({})
+lspconfig.ccls.setup({
+    init_options = {
+        compilationDatabaseDirectory = "build",
+    }
+})
 
 -- java
 lspconfig.jdtls.setup({})
@@ -92,8 +95,12 @@ local metals_config = require("metals").bare_config()
 
 -- Example of settings
 metals_config.settings = {
-  showImplicitArguments = true,
-  excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+    showImplicitArguments = true,
+    excludedPackages = {
+        "akka.actor.typed.javadsl",
+        "com.github.swagger.akka.javadsl",
+    },
+    scalafmtConfigPath = "/usr/local/cfg/nvim/config/scalafmt.conf",
 }
 
 metals_config.capabilities = cmp_capabilities
@@ -101,12 +108,13 @@ metals_config.capabilities = cmp_capabilities
 -- Autocmd that will actually be in charging of starting the whole thing
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
 api.nvim_create_autocmd("FileType", {
-  -- NOTE: You may or may not want java included here. You will need it if you
-  -- want basic Java support but it may also conflict if you are using
-  -- something like nvim-jdtls which also works on a java filetype autocmd.
-  pattern = { "scala", "sbt", "java" },
-  callback = function()
-    require("metals").initialize_or_attach(metals_config)
-  end,
-  group = nvim_metals_group,
+    -- NOTE: You may or may not want java included here. You will need it if you
+    -- want basic Java support but it may also conflict if you are using
+    -- something like nvim-jdtls which also works on a java filetype autocmd.
+    pattern = { "scala", "sbt", "java" },
+    callback = function()
+        print("Intializing metals")
+        require("metals").initialize_or_attach(metals_config)
+    end,
+    group = nvim_metals_group,
 })

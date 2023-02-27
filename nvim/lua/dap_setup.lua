@@ -1,7 +1,10 @@
 local dapui = require("dapui")
 local dap = require("dap")
 
--- - UI ----------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+-- UI
+------------------------------------------------------------------------------------------------------------------------
+
 dapui.setup()
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -14,7 +17,51 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
--- - ADAPTERS ----------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+-- PROJECT CONFIG
+-- Reference: https://github.com/ldelossa/nvim-dap-projects/blob/main/lua/nvim-dap-projects.lua
+------------------------------------------------------------------------------------------------------------------------
+
+local function search_project_config()
+
+    local project_dir = vim.fn.finddir(".git/..", vim.fn.expand("%:p:h") .. ";") .. "/"
+    local config_paths = { ".dap.lua" }
+    local project_config = ""
+
+    for _, p in ipairs(config_paths) do
+        p = project_dir .. p
+        vim.notify("[nvim-dap] " .. p, vim.log.levels.ERROR, nil)
+        local f = io.open(p)
+        if f ~= nil then
+            f:close()
+            project_config = p
+            break
+        end
+    end
+
+    if project_config == "" then
+        vim.notify("[nvim-dap] did not found config file", vim.log.levels.ERROR, nil)
+        return
+    end
+
+    vim.notify("[nvim-dap] Found nvim-dap configuration at." .. project_config, vim.log.levels.INFO, nil)
+
+    require("dap").adapters = (function() return {} end)()
+    require("dap").configurations = (function() return {} end)()
+    vim.cmd(":luafile " .. project_config)
+end
+
+vim.api.nvim_create_user_command(
+    "SearchProjectConfig",
+    function(opts)
+        search_project_config()
+    end,
+    { nargs = 0, force = true }
+)
+
+------------------------------------------------------------------------------------------------------------------------
+-- ADAPTERS
+------------------------------------------------------------------------------------------------------------------------
 
 dap.adapters.lldb = {
     type = "executable",
@@ -22,7 +69,9 @@ dap.adapters.lldb = {
     name = "lldb"
 }
 
--- - CONFIG ------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+-- CONFIG
+------------------------------------------------------------------------------------------------------------------------
 
 dap.configurations.cpp = {
     {

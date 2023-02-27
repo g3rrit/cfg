@@ -43,7 +43,7 @@ vim.keymap.set("n", "<space>f", ":Ag<CR>", default_opts)
 vim.keymap.set("n", "<space>b", ":Buffer<CR>", default_opts)
 
 -- LSP
-vim.api.nvim_create_autocmd('LspAttach', {
+vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
@@ -55,34 +55,60 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local function keymap_set(mapping, action, check)
             -- if check then
-                vim.keymap.set('n', mapping, action, opts)
+                vim.keymap.set("n", mapping, action, opts)
             -- end
         end
 
-        keymap_set('gh', vim.lsp.buf.hover, client.server_capabilities.hoverProvider)
-        keymap_set('<space>r', vim.lsp.buf.rename, client.server_capabilities.renameProvider)
-        keymap_set('gD',vim.lsp.buf.declaration, client.server_capabilities.declarationProvider)
-        keymap_set('gd',vim.lsp.buf.definition, client.server_capabilities.definitionProvider)
-        keymap_set('gr',vim.lsp.buf.references, client.server_capabilities.referencesProvider)
-        keymap_set('gs',vim.lsp.buf.signature_help, client.server_capabilities.signature_helpProvider)
-        keymap_set('gi',vim.lsp.buf.implementation, client.server_capabilities.implementationProvider)
+        keymap_set("gh", vim.lsp.buf.hover, client.server_capabilities.hoverProvider)
+        keymap_set("<space>r", vim.lsp.buf.rename, client.server_capabilities.renameProvider)
+        keymap_set("gD",vim.lsp.buf.declaration, client.server_capabilities.declarationProvider)
+        keymap_set("gd",vim.lsp.buf.definition, client.server_capabilities.definitionProvider)
+        keymap_set("gr",vim.lsp.buf.references, client.server_capabilities.referencesProvider)
+        keymap_set("gs",vim.lsp.buf.signature_help, client.server_capabilities.signature_helpProvider)
+        keymap_set("gi",vim.lsp.buf.implementation, client.server_capabilities.implementationProvider)
         -- TODO: find something better here
-        -- keymap_set('gt',vim.lsp.buf.type_definition, client.server_capabilities.type_definitionProvider)
-        keymap_set('<space>gw',vim.lsp.buf.document_symbol, client.server_capabilities.document_symbolProvider)
-        keymap_set('<space>gW',vim.lsp.buf.workspace_symbol, client.server_capabilities.workspace_symbolProvider)
-        keymap_set('<space>ah',vim.lsp.buf.hover, client.server_capabilities.hoverProvider)
-        keymap_set('<space>af',vim.lsp.buf.code_action, client.server_capabilities.code_actionProvider)
+        -- keymap_set("gt",vim.lsp.buf.type_definition, client.server_capabilities.type_definitionProvider)
+        keymap_set("<space>gw",vim.lsp.buf.document_symbol, client.server_capabilities.document_symbolProvider)
+        keymap_set("<space>gW",vim.lsp.buf.workspace_symbol, client.server_capabilities.workspace_symbolProvider)
+        keymap_set("<space>ah",vim.lsp.buf.hover, client.server_capabilities.hoverProvider)
+        keymap_set("<space>af",vim.lsp.buf.code_action, client.server_capabilities.code_actionProvider)
         -- TODO: fix this
-        -- keymap_set('<space>ee',vim.lsp.util.show_line_diagnostics, client.server_capabilities.show_line_diagnosticsProvider)
-        keymap_set('<space>ar',vim.lsp.buf.rename, client.server_capabilities.renameProvider)
-        keymap_set('<space>=', vim.lsp.buf.format, client.server_capabilities.formatProvider)
-        keymap_set('<space>ai',vim.lsp.buf.incoming_calls, client.server_capabilities.incoming_callsProvider)
-        keymap_set('<space>ao',vim.lsp.buf.outgoing_calls, client.server_capabilities.outgoing_callsProvider)
+        -- keymap_set("<space>ee",vim.lsp.util.show_line_diagnostics, client.server_capabilities.show_line_diagnosticsProvider)
+        keymap_set("<space>ar",vim.lsp.buf.rename, client.server_capabilities.renameProvider)
+        keymap_set("<space>=", vim.lsp.buf.format, client.server_capabilities.formatProvider)
+        keymap_set("<space>ai",vim.lsp.buf.incoming_calls, client.server_capabilities.incoming_callsProvider)
+        keymap_set("<space>ao",vim.lsp.buf.outgoing_calls, client.server_capabilities.outgoing_callsProvider)
     end,
 })
 
 -- Easymotion
-vim.keymap.set("n", '<space>', '<Plug>(easymotion-prefix)', default_opts)
+vim.keymap.set("n", "<space>", "<Plug>(easymotion-prefix)", default_opts)
 
 -- Nerdtree
-vim.keymap.set("n", '<space>n', ':NERDTreeTabsToggle<CR>', default_opts)
+vim.keymap.set("n", "<space>n", ":NERDTreeTabsToggle<CR>", default_opts)
+
+-- DAP
+
+vim.keymap.set("n", "<space>dc", function() require("dap").continue() end)
+vim.keymap.set("n", "<space>dn", function() require("dap").step_over() end)
+vim.keymap.set("n", "<space>di", function() require("dap").step_into() end)
+vim.keymap.set("n", "<space>do", function() require("dap").step_out() end)
+vim.keymap.set("n", "<space>db", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<space>dB", function() require("dap").set_breakpoint() end)
+vim.keymap.set("n", "<space>dlp", function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end)
+-- vim.keymap.set("n", "<space>ddr", function() require("dap").repl.open() end)
+vim.keymap.set("n", "<space>dl", function() require("dap").run_last() end)
+vim.keymap.set({"n", "v"}, "<space>dh", function()
+  require("dap.ui.widgets").hover()
+end)
+vim.keymap.set({"n", "v"}, "<space>dp", function()
+  require("dap.ui.widgets").preview()
+end)
+vim.keymap.set("n", "<space>df", function()
+  local widgets = require("dap.ui.widgets")
+  widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set("n", "<space>ds", function()
+  local widgets = require("dap.ui.widgets")
+  widgets.centered_float(widgets.scopes)
+end)
