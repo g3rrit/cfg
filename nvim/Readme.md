@@ -69,9 +69,15 @@ sudo ln -s /usr/local/cfg/nvim/rocks/share/lua/5.1 /usr/local/share/lua/5.1
 sudo ln -s /usr/local/cfg/nvim/rocks/lib/lua/5.1 /usr/local/lib/lua/5.1
 ```
 
-For `luasec` the openssl directory might need to be set:
+For `luasec` the openssl directory might need to be set.
+For Mac:
 ```
 luarocks install luasec --lua-version 5.1 --tree rocks OPENSSL_DIR=/opt/homebrew/opt/openssl
+```
+For WSL:
+Make sure to install `openssl` and `libssl-dev` -> `/usr/lib/x86_64-linux/gnu`, `/usr/include`
+```
+luarocks install luasec --lua-version 5.1 --tree rocks OPENSSL_INCDIR=/usr/include
 ```
 
 ### Notes

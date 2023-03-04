@@ -110,7 +110,7 @@ vim.opt.visualbell = true
 -- Spellchecking
 if ENABLE_SPELL then
     vim.opt.spell = true
-    vim.opt.spelllang = "en"
+    vim.opt.spelllang = "en,nb"
     vim.opt.spellfile = "/usr/local/cfg/nvim/spell/en.utf-8.add"
     -- Add word to spell-file `zg`
     -- Go to next and previous misspelled word `]s`, `[s`
@@ -135,11 +135,13 @@ vim.opt.relativenumber = true
 
 -- Show trailing characters
 vim.opt.listchars = {
-  tab = '│·',
+  tab = '│ ',
   extends = '⟩',
   precedes = '⟨',
   trail = '·'
 }
+
+vim.opt.list = true
 
 -- Cursor motion
 vim.opt.scrolloff = 3
@@ -208,3 +210,4 @@ require("tex_setup")
 require("auto_cmds")
 require("luasnip_setup")
 require("dap_setup")
+require("auto_run")
