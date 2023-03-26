@@ -112,3 +112,9 @@ vim.keymap.set("n", "<space>ds", function()
   local widgets = require("dap.ui.widgets")
   widgets.centered_float(widgets.scopes)
 end)
+
+-- Luasnip
+
+vim.keymap.set("n", "<tab>", function() require("luasnip").jump(1) end)
+-- vim.keymap.set("n", "<s-tab>", function() require("luasnip").jump(-1) end)
+

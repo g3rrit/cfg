@@ -7,3 +7,6 @@ vim.api.nvim_command("autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if m
 -- Notification after file change
 -- https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 vim.api.nvim_command("autocmd FileChangedShellPost * echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None")
+
+-- Yank into clipboard WSL
+vim.api.nvim_command("autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif")

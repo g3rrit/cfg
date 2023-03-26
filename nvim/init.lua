@@ -121,9 +121,9 @@ vim.opt.wrap = true
 vim.opt.textwidth= 120
 vim.opt.wrapmargin= 0
 vim.opt.colorcolumn= "121" -- highlight column
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.shiftround = false
 

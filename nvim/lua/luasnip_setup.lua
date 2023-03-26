@@ -38,15 +38,23 @@ end
 
 ls.add_snippets("cpp", {
     s("#head", {
-        t("#ifndef "), p(get_fname_upper), t({"_HPP_", ""}),
-        t("#define "), p(get_fname_upper), t({"_HPP_", ""}),
+        t("#ifndef "), p(get_fname_upper), t({"_H", ""}),
+        t("#define "), p(get_fname_upper), t({"_H", ""}),
         i(0),
-        t({"", "#endif /* "}), p(get_fname_upper), t("_HPP_"), t(" */")
+        t({"", "#endif /* "}), p(get_fname_upper), t("_H"), t(" */")
     })
 })
 
 ls.add_snippets("cpp", {
     s("#comment", {
+        t("/*"), t(string.rep("*", 78)),
+        t({"", " * "}), i(1, "COMMENT"),
+        t({"", " *"}), t(string.rep("*", 77)), t("/"),
+    })
+})
+
+ls.add_snippets("cpp", {
+    s("#comment1", {
         t("/*"), t(string.rep("-", 117)), t({"+", ""}), t("|"), t(string.rep(" ", 2)),
         i(1, "COMMENT"), d(2, function(args)
                 local slen = args[1][1]:len()
@@ -60,7 +68,7 @@ ls.add_snippets("cpp", {
 })
 
 ls.add_snippets("cpp", {
-    s("#ccomment", {
+    s("#ccomment1", {
         t("// - "), i(1, "COMMENT"), d(2, function(args)
                 print(vim.inspect(args))
                 return sn(nil, {
@@ -68,6 +76,24 @@ ls.add_snippets("cpp", {
                 })
             end,
         {1})
+    })
+})
+
+ls.add_snippets("cpp", {
+    s("#doc", {
+        t("/"), t(string.rep("*", 78)),
+        t({"", " *"}),
+        t({"", " * Function     : "}), i(1, "name"),
+        t({"", " *"}),
+        t({"", " * In-Params    : "}), i(2, "None"),
+        t({"", " *"}),
+        t({"", " * Out-Params   : "}), i(3, "None"),
+        t({"", " *"}),
+        t({"", " * Return       : "}), i(4, "None"),
+        t({"", " *"}),
+        t({"", " * Description  : "}), i(5, "None"),
+        t({"", " *"}),
+        t({"", " *"}), t(string.rep("*", 77)), t("/"),
     })
 })
 
