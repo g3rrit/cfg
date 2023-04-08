@@ -47,14 +47,6 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_user_command(
-    'ChatGPT',
-    function(opts)
-        rep_cmds.chat_rep(opts.fargs)
-    end,
-    { nargs = "*", force = true }
-)
-
-vim.api.nvim_create_user_command(
     'Trans',
     function(opts)
         rep_cmds.trans_rep(opts.fargs)
@@ -135,8 +127,7 @@ vim.api.nvim_create_user_command(
                 k:match("^keybindings") or
                 k:match("^rep") or
                 k:match("^rep_cmds") or
-                k:match("^auto_cmds") or
-                k:match("^chat")
+                k:match("^auto_cmds")
             ) then
                 package.loaded[k] = nil
             end
@@ -147,7 +138,6 @@ vim.api.nvim_create_user_command(
         require("rep")
         require("rep_cmds")
         require("auto_cmds")
-        require("chat")
     end,
     { nargs = 0, force = true }
 )

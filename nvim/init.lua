@@ -61,6 +61,11 @@ Plug 'lervag/vimtex'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 
+-- ChatGPT
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jackMort/ChatGPT.nvim'
+
 vim.call('plug#end')
 --------------------
 
@@ -211,3 +216,4 @@ require("auto_cmds")
 require("luasnip_setup")
 require("dap_setup")
 require("auto_run")
+require("chatgpt_setup")
