@@ -1,0 +1,30 @@
+set incsearch
+set ignorecase
+set smartcase
+set multiple-cursors
+set clipboard+=unnamed
+set ideajoin
+set ideaput
+set relativenumber
+set number
+set surround
+set highlightedyank
+set relativenumber
+set idearefactormode=keep
+set ideajoin
+set showmode
+set NERDTree
+
+noremap <SPACE> <Nop>
+" nnoremap <SPACE> :
+
+let mapleader = " "
+
+# keybindings
+
+
+nnoremap <leader>s :action SaveAll<CR>
+nnoremap <leader>f :action FindInPath<CR>
+nnoremap <leader>p :action GotoFile<CR>
+nnoremap <leader>o :action GotoAction<CR>
+
