@@ -1,20 +1,21 @@
 {
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "keyboard.dispatch": "keyCode",
+    "git.defaultBranchName": "master",
+
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
 
     "latex-workshop.latex.autoBuild.run": "never",
 
-    "reason.path.ocamlmerlin": "/home/pear/.opam/default/bin/ocamlmerlin",
-
     "git.confirmSync": false,
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "Hack",
 
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "relative",
     "editor.cursorStyle": "line",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "editor.detectIndentation": true,
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "trailing",
+    //"editor.renderWhitespace": "all",
     "editor.rulers" : [120],
 
     "zenMode.fullScreen": false,
@@ -25,8 +26,6 @@
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.visualblock": "block-outline",
-
-    "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
     "C_Cpp.clang_format_style": "file",
     "C_Cpp.clang_format_fallbackStyle": "none",
 
@@ -43,7 +42,7 @@
     "[c]": {
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
-        "editor.tabSize": 4,
+        "editor.tabSize": 2,
         "editor.lineNumbers": "relative",
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
@@ -51,12 +50,13 @@
     "[cpp]": {
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
-        "editor.tabSize": 4,
+        "editor.tabSize": 2,
         "editor.lineNumbers": "relative"
     },
 
     "[python]": {
-        "editor.lineNumbers": "relative"
+        "editor.lineNumbers": "relative",
+        "editor.tabSize": 4
     },
 
     "[haskell]": {
@@ -65,6 +65,18 @@
 
     "[ocaml]": {
         "editor.lineNumbers": "relative"
+    },
+
+    "[java]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "diffEditor.ignoreTrimWhitespace": false
     },
 
     "editor.fontSize": 15,
@@ -245,8 +257,6 @@
     ],
 
     "gitlab.ignoreCertificateErrors": true,
-    "http.proxySupport": "off",
-    "http.proxyStrictSSL": false,
 
     "explorer.confirmDelete": true,
 
@@ -270,7 +280,21 @@
         "worktree", "cmake", "tracedb", "idxs", "showlegend", "ranksum","staticproperty", "classproperty",
         "opam", "visualblock", "ocamlmerlin", "neovim", "easymotion", "hlsearch", "incsearch", "ipynb"
     ],
-
-    "window.zoomLevel": -1,
     "haskell.manageHLS": "PATH",
+
+    //"vscode-neovim.useWSL": true,
+    "vscode-neovim.neovimExecutablePaths.win32": "nvim.exe",
+    "vscode-neovim.neovimExecutablePaths.darwin": "nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/usr/local/vscode/init.lua",
+
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "jupyter.askForKernelRestart": false,
+    "git.openRepositoryInParentFolders": "never",
 }
