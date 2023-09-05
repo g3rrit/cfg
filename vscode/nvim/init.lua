@@ -1,3 +1,7 @@
+vim.cmd([[
+set runtimepath=/usr/local/cfg/vscode/nvim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,/usr/local/cfg/vscode/nvim/after
+set packpath=/usr/local/cfg/vscode/nvim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,/usr/local/cfg/vscode/nvim/after
+]])
 
 -- Install plugins
 local Plug = vim.fn['plug#']
