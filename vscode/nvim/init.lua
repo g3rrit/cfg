@@ -75,22 +75,22 @@ vim.keymap.set("n", "<space>", "<Plug>(easymotion-prefix)", default_opts)
 
 -- VSCode specific keybindings
 
-vim.keymap.set("n", "<space>o", ":call VSCodeNotifyVisual('workbench.action.showCommands', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)
 
 --
-vim.keymap.set("n", "<space>t", ":call VSCodeNotifyVisual('workbench.action.terminal.focus', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>f", ":call VSCodeNotifyVisual('workbench.action.findInFiles', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>r", ":call VSCodeNotifyVisual('workbench.action.replaceInFiles', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>n", ":call VSCodeNotifyVisual('search.action.focusNextSearchResult', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>N", ":call VSCodeNotifyVisual('search.action.focusPreviousSearchResult', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>p", ":call VSCodeNotifyVisual('workbench.action.quickOpen', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>o", ":call VSCodeNotifyVisual('workbench.action.showCommands', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>[", ":call VSCodeNotifyVisual('workbench.action.showAllSymbols', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>s", ":call VSCodeNotifyVisual('workbench.action.files.save', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>t", ":call VSCodeNotify('workbench.action.terminal.focus', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>f", ":call VSCodeNotify('workbench.action.findInFiles', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>r", ":call VSCodeNotify('workbench.action.replaceInFiles', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>n", ":call VSCodeNotify('search.action.focusNextSearchResult', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>N", ":call VSCodeNotify('search.action.focusPreviousSearchResult', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>p", ":call VSCodeNotify('workbench.action.quickOpen', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>[", ":call VSCodeNotify('workbench.action.showAllSymbols', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>s", ":call VSCodeNotify('workbench.action.files.save', 1)<CR>", default_opts)
 
--- vim.keymap.set("n", "<space>s", ":call VSCodeNotifyVisual('editor.action.showHover', 1)<CR>", default_opts)
+-- vim.keymap.set("n", "<space>s", ":call VSCodeNotify('editor.action.showHover', 1)<CR>", default_opts)
 
 -- Splits
-vim.keymap.set("n", "<space>v", ":call VSCodeNotifyVisual('workbench.action.splitEditorRight', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>\"", ":call VSCodeNotifyVisual('workbench.action.splitEditorDown', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>x", ":call VSCodeNotifyVisual('workbench.action.closeActiveEditor', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>v", ":call VSCodeNotify('workbench.action.splitEditorRight', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>\"", ":call VSCodeNotify('workbench.action.splitEditorDown', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>x", ":call VSCodeNotify('workbench.action.closeActiveEditor', 1)<CR>", default_opts)
