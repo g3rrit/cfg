@@ -126,3 +126,6 @@
     conflictstyle = diff3
     tool = code
 
+[user]
+	name = Gerrit Proessl
+	email = gerrit.prossl@tietoevry.com
