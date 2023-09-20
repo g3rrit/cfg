@@ -3,5 +3,5 @@ if vim.g.vscode then
   -- Specified via settings.json require("init_vscode")
 else
   -- ordinary Neovim
-  require("init_vscode")
+  require("init_core")
 end
