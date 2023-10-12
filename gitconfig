@@ -60,6 +60,9 @@
     # Show diff of staged files
     diffs = diff --staged
 
+    # Diff to previous commit
+    diffp = "!f() { git diff $1~ $@; }; f"
+
     # Remove also from git repository
     rmc = rm -r --cached
 
@@ -126,6 +129,3 @@
     conflictstyle = diff3
     tool = code
 
-[user]
-	name = Gerrit Proessl
-	email = gerrit.prossl@tietoevry.com

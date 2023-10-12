@@ -2,24 +2,20 @@
 [
     // Vim move around windows
     {
-        "key" : "ctr+h",
+        "key" : "ctrl+h",
         "command" : "workbench.action.navigateLeft",
-        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : " l",
+        "key" : "ctrl+l",
         "command" : "workbench.action.navigateRight",
-        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space k",
+        "key" : "ctrl+k",
         "command" : "workbench.action.navigateUp",
-        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space j",
+        "key" : "ctrl+j",
         "command" : "workbench.action.navigateDown",
-        "when": "!editorFocus && !inputFocus"
     },
 
     // Search keybindings
