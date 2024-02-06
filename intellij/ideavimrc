@@ -28,3 +28,8 @@ nnoremap <leader>f :action FindInPath<CR>
 nnoremap <leader>p :action GotoFile<CR>
 nnoremap <leader>o :action GotoAction<CR>
 
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+
+nmap gh <Action>(QuickJavaDoc)
+

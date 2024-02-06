@@ -95,3 +95,11 @@ vim.keymap.set("n", "<space>s", ":call VSCodeNotify('workbench.action.files.save
 vim.keymap.set("n", "<space>v", ":call VSCodeNotify('workbench.action.splitEditorRight', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>\"", ":call VSCodeNotify('workbench.action.splitEditorDown', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>x", ":call VSCodeNotify('workbench.action.closeActiveEditor', 1)<CR>", default_opts)
+
+-- GoTo
+vim.keymap.set("n", "gr", ":call VSCodeNotify('references-view.findReferences', 1)<CR>", default_opts)
+
+-- Peek
+vim.keymap.set("n", "gpd", ":call VSCodeNotify('editor.action.peekDefinition', 1)<CR>", default_opts)
+vim.keymap.set("n", "gpD", ":call VSCodeNotify('editor.action.peekDefinition', 1)<CR>", default_opts)
+vim.keymap.set("n", "gpx", ":call VSCodeNotify('togglePeekWidgetFocus', 1)<CR>", default_opts)

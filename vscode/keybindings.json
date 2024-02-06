@@ -211,6 +211,10 @@
         "command": "acceptSelectedSuggestion",
         "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
     },
+    {
+        "key": "ctrl+enter",
+        "command": "editor.action.inlineSuggest.commit",
+    },
 
     // Remove default keybindings
     {

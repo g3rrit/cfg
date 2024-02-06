@@ -28,7 +28,7 @@
     p = push
 
     # Force push
-    pf = push --force
+    pf = push --force-with-lease
 
     # List both remote-tracking branches and local branches.
     ba = branch -a
@@ -75,12 +75,19 @@
     # Pretty log of last five commits
     ll = log --pretty=oneline --abbrev-commit -5
 
+    # Log last n commits
+    l = log -1
+    l2 = log -2
+    l3 = log -3
+    l4 = log -4
+    l5 = log -5
+
     # Pretty log tree
     tree = log --graph --abbrev-commit --decorate \
         --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 
     # Reverse log from a specific commit. Usage: git rlog <commit-ish>
-    rlog = "!f() { c1=$1; c2=$2; shift 2; git log --reverse --ancestry-path ${c1}^..${c2} $@; }; f"
+    rlog = "!f() { c1=$1; shift 2; git log --reverse --ancestry-path ${c1}^..HEAD $@; }; f"
 
     # Change branch with fzf
     cb  = ! git branch | fzf | xargs git checkout
