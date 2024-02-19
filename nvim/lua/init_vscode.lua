@@ -74,6 +74,9 @@ vim.keymap.set("n", "<space>", "<Plug>(easymotion-prefix)", default_opts)
 -- ]])
 -- end
 
+-- https://github.com/vscode-neovim/vscode-neovim/issues/298
+vim.opt.clipboard:append("unnamedplus")
+
 -- VSCode specific keybindings
 
 vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)

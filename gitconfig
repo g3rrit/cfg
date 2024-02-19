@@ -36,6 +36,9 @@
     # Display the staged changes
     dc = diff --cached
 
+    # Display diff without whitespace changes
+    dw = diff -w
+
     # Ammend commit with new date
     ca = commit --amend --date=now
 
