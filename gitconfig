@@ -24,11 +24,17 @@
     # Commit you changes
     c = commit
 
+    # Commit fixup
+    cf = commit --fixup
+
     # Push you changes to a remote
     p = push
 
     # Force push
     pf = push --force-with-lease
+
+    # Add all & push force
+    apf = ! git add --all && git commit --amend --date=now --no-edit && git push --force-with-lease
 
     # List both remote-tracking branches and local branches.
     ba = branch -a
@@ -39,14 +45,14 @@
     # Display diff without whitespace changes
     dw = diff -w
 
-    # Ammend commit with new date
-    ca = commit --amend --date=now
+    # Display word diff
+    wd = diff --word-diff
+
+    # Amend commit with new date
+    ca = commit --amend --date=now --no-edit
 
     # Add all changes from anywhere
     aa = add --all
-
-    # Ammend commit and dont edit commit message
-    can = commit --amend --no-edit
 
     # Rebase
     rb = rebase
@@ -69,7 +75,7 @@
     # Remove also from git repository
     rmc = rm -r --cached
 
-    # Add -> Commit -> Ammend -> Force push
+    # Add -> Commit -> Amend -> Force push
     capf = ! git add . && git commit --amend --no-edit && git push -f
 
     # Pretty log
@@ -80,6 +86,7 @@
 
     # Log last n commits
     l = log -1
+    l1 = log -1
     l2 = log -2
     l3 = log -3
     l4 = log -4
@@ -127,6 +134,12 @@
 
     # Show tags for branch by date
     ltag = log --tags --simplify-by-decoration --pretty='format:%h %ci %d'
+
+    # Show merged/rebased branches on master
+    showm = ! /usr/local/cfg/scripts/git_rm_gone.sh
+
+    # Reset the author for all commits in the history
+    rauthor = rebase -r --root --exec "git commit --amend --no-edit --reset-author"
 
 [pull]
     rebase = true

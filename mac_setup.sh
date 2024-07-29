@@ -233,6 +233,9 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 
+# Disable dock bounce
+defaults write com.apple.dock no-bouncing -bool true;
+
 killall Finder
 killall Dock
 
