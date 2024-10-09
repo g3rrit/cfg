@@ -3,8 +3,26 @@
 #   path = /usr/local/cfg/gitconfig
 
 [alias]
+    # Add all changes from anywhere
+    aa = add --all
+
+    # Add all & push force
+    apf = ! git add --all && git commit --amend --date=now --no-edit && git push --force-with-lease
+
+    # List both remote-tracking branches and local branches.
+    ba = branch -a
+
     # Branch
     br = branch
+
+    # Commit you changes
+    c = commit
+
+    # Amend commit with new date
+    ca = commit --amend --date=now --no-edit
+
+    # Change branch with fzf
+    cb  = ! git branch | fzf | xargs git checkout
 
     # Checkout a branch
     co = checkout
@@ -15,74 +33,47 @@
     # Cherry pick change
     cp = cherry-pick
 
+    # Commit fixup
+    cf = "!f() {\
+             [[ -z $1 ]] && { echo "Specify commit"; exit -1; };\
+             git commit --squash=$1;\
+             git rebase --interactive --autosquash ${1}^;\
+           }; f"
+
+    # Diff
+    d = diff
+
+    # Display the staged changes
+    dc = diff --cached
+
+    # Show diff of staged files
+    diffs = diff --staged
+    ds = diff --staged
+
+    # Diff to previous commit
+    diffp = "!f() { git diff $1~ $@; }; f"
+    dp = "!f() { git diff $1~ $@; }; f"
+
+    # Display diff without whitespace changes
+    dw = diff -w
+
     # Fetch from a repository
     f = fetch
 
     # Fetch from a repository on all remotes
     fa = fetch --all
 
-    # Commit you changes
-    c = commit
-
-    # Commit fixup
-    cf = commit --fixup
-
-    # Push you changes to a remote
-    p = push
-
-    # Force push
-    pf = push --force-with-lease
-
-    # Add all & push force
-    apf = ! git add --all && git commit --amend --date=now --no-edit && git push --force-with-lease
-
-    # List both remote-tracking branches and local branches.
-    ba = branch -a
-
-    # Display the staged changes
-    dc = diff --cached
-
-    # Display diff without whitespace changes
-    dw = diff -w
-
-    # Display word diff
-    wd = diff --word-diff
-
-    # Amend commit with new date
-    ca = commit --amend --date=now --no-edit
-
-    # Add all changes from anywhere
-    aa = add --all
-
-    # Rebase
-    rb = rebase
-
-    # Rebase onto origin/master
-    rbm = rebase --onto origin/master
-
     # Log last commit
     last = log -1
-
-    # Short status
-    st = status -sb
-
-    # Show diff of staged files
-    diffs = diff --staged
-
-    # Diff to previous commit
-    diffp = "!f() { git diff $1~ $@; }; f"
-
-    # Remove also from git repository
-    rmc = rm -r --cached
-
-    # Add -> Commit -> Amend -> Force push
-    capf = ! git add . && git commit --amend --no-edit && git push -f
 
     # Pretty log
     lp = log --pretty=oneline --abbrev-commit
 
     # Pretty log of last five commits
     ll = log --pretty=oneline --abbrev-commit -5
+
+    # Show tags for branch by date
+    ltag = log --tags --simplify-by-decoration --pretty='format:%h %ci %d'
 
     # Log last n commits
     l = log -1
@@ -92,25 +83,17 @@
     l4 = log -4
     l5 = log -5
 
-    # Pretty log tree
-    tree = log --graph --abbrev-commit --decorate \
-        --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-
-    # Reverse log from a specific commit. Usage: git rlog <commit-ish>
-    rlog = "!f() { c1=$1; shift 2; git log --reverse --ancestry-path ${c1}^..HEAD $@; }; f"
-
-    # Change branch with fzf
-    cb  = ! git branch | fzf | xargs git checkout
-
-    # Add new commit with a template of the previous commit message
-    recommit = commit --reedit-message=HEAD --date=now
-    rc = commit --reedit-message=HEAD --date=now
-
-    # TODO: This currently does not work
-    rmgone = "! sh /usr/local/cfg/scripts/git_rm_gone"
-
     # Diff with meld
     mdiff = difftool -t meld --dir-diff
+
+    # Push you changes to a remote
+    p = push
+
+    # Force push
+    pf = push --force-with-lease
+
+    # Push and create upstream branch
+    pu = push -u origin HEAD
 
     # Push origin head
     ph = push origin HEAD
@@ -126,20 +109,40 @@
     # Hard reset the current state of the repository to HEAD
     purge = ! git reset --hard HEAD && git clean -fd
 
-    # Worktree
-    wt = worktree
+    # Rebase
+    rb = rebase
+
+    # Reset the author for all commits in the history
+    rauthor = ! git rebase -r --root --exec "git commit --amend --no-edit --reset-author --date=\"$(git log -n 1 --format=%aD)\""
+
+    # Rebase onto origin/master
+    rbm = rebase --onto origin/master
+
+    # Remove also from git repository
+    rm = rm -r --cached
+
+    # Reverse log from a specific commit. Usage: git rlog <commit-ish>
+    rlog = "!f() { c1=$1; shift 2; git log --reverse --ancestry-path ${c1}^..HEAD $@; }; f"
+
+    # Add new commit with a template of the previous commit message
+    recommit = commit --reedit-message=HEAD --date=now
+    rc = commit --reedit-message=HEAD --date=now
 
     # Reset everything to the current state of the upstream branch
     ru = !git reset --hard HEAD && git clean -fd && git fetch --all && git reset --hard @{u}
 
-    # Show tags for branch by date
-    ltag = log --tags --simplify-by-decoration --pretty='format:%h %ci %d'
+    # Short status
+    st = status -sb
 
-    # Show merged/rebased branches on master
-    showm = ! /usr/local/cfg/scripts/git_rm_gone.sh
+    # Pretty log tree
+    tree = log --graph --abbrev-commit --decorate \
+        --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 
-    # Reset the author for all commits in the history
-    rauthor = rebase -r --root --exec "git commit --amend --no-edit --reset-author"
+    # Display word diff
+    wd = diff --word-diff
+
+    # Worktree
+    wt = worktree
 
 [pull]
     rebase = true

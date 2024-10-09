@@ -68,6 +68,11 @@
         "when": "!editorFocus && !inputFocus"
     },
     {
+        "key" : "space b",
+        "command" : "workbench.action.quickOpenRecent",
+        "when": "!editorFocus && !inputFocus"
+    },
+    {
         "key" : "space r",
         "command" : "workbench.action.replaceInFiles",
         "when": "!editorFocus && !inputFocus"
@@ -113,10 +118,17 @@
         "when" : "!editorFocus && !inputFocus"
     },
 
+
+    // Escape
     {
         "key" : "escape",
         "command" : "workbench.action.focusActiveEditorGroup",
         "when": "!editorFocus && inputFocus && !terminalFocus"
+    },
+    {
+        "key": "escape",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible"
     },
 
     // Select next/previous with vim keybindings

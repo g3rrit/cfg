@@ -88,6 +88,7 @@ vim.keymap.set("n", "<space>r", ":call VSCodeNotify('workbench.action.replaceInF
 vim.keymap.set("n", "<space>n", ":call VSCodeNotify('search.action.focusNextSearchResult', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>N", ":call VSCodeNotify('search.action.focusPreviousSearchResult', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>p", ":call VSCodeNotify('workbench.action.quickOpen', 1)<CR>", default_opts)
+vim.keymap.set("n", "<space>b", ":call VSCodeNotify('workbench.action.quickOpen', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>[", ":call VSCodeNotify('workbench.action.showAllSymbols', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>s", ":call VSCodeNotify('workbench.action.files.save', 1)<CR>", default_opts)
@@ -106,3 +107,7 @@ vim.keymap.set("n", "gr", ":call VSCodeNotify('references-view.findReferences', 
 vim.keymap.set("n", "gpd", ":call VSCodeNotify('editor.action.peekDefinition', 1)<CR>", default_opts)
 vim.keymap.set("n", "gpD", ":call VSCodeNotify('editor.action.peekDefinition', 1)<CR>", default_opts)
 vim.keymap.set("n", "gpx", ":call VSCodeNotify('togglePeekWidgetFocus', 1)<CR>", default_opts)
+
+-- Copilot
+vim.keymap.set("n", "<space>cp", ":call VSCodeNotify('inlineChat.startWithCurrentLine', 1)<CR>", default_opts)
+

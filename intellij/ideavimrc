@@ -27,6 +27,10 @@ nnoremap <leader>s :action SaveAll<CR>
 nnoremap <leader>f :action FindInPath<CR>
 nnoremap <leader>p :action GotoFile<CR>
 nnoremap <leader>o :action GotoAction<CR>
+nnoremap <leader>b :action RecentFiles<CR>
+nnoremap <leader>x :action CloseContent<CR>
+nnoremap <leader>v :action SplitVertically<CR>
+nnoremap <leader>" :action SplitHorizontally<CR>
 
 nmap [m <Action>(MethodUp)
 nmap ]m <Action>(MethodDown)
@@ -94,7 +98,7 @@ noremap <Space>cc :action Coverage<CR>
 noremap <Space>cn :action RunCoverage<CR>
 noremap <Space>sp   :action Stop<CR>
 """"""""""""""""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""""""""
-noremap <Space>bp :action ToggleLineBreakpoint<CR>
+#noremap <Space>bp :action ToggleLineBreakpoint<CR>
 noremap <Space>qe :action QuickEvaluateExpression <CR>
 noremap <Space>ee :action EvaluateExpression <CR>
 noremap <Space>fr :action Debugger.ForceEarlyReturn<CR>
@@ -152,7 +156,7 @@ noremap <Space>ccp   :action CopyContentRootPath<CR>
 nnoremap <Space>cv :action ChangeView<CR>
 noremap <Space>co :action CloseAllEditorsButActive<CR>
 noremap <Space>ag :action antlr.Generate<CR>:action antlr.Generate<CR>
-noremap <Space>bc   :action ByteCodeViewer<CR>
+#noremap <Space>bc   :action ByteCodeViewer<CR>
 noremap <Space>qq   :action $TranslateTextComponent<CR>
 noremap <Space>tr :action $TranslateAndReplaceAction<CR>
 noremap <Space>gfu :action GenerateFullRestUrl<CR>
