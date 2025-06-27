@@ -1,3 +1,4 @@
+-- Find action id: Track Action Ids.
 set incsearch
 set ignorecase
 set smartcase
@@ -23,12 +24,12 @@ let mapleader = " "
 # keybindings
 
 
-nnoremap <leader>s :action SaveAll<CR>
-nnoremap <leader>f :action FindInPath<CR>
-nnoremap <leader>p :action GotoFile<CR>
-nnoremap <leader>o :action GotoAction<CR>
-nnoremap <leader>b :action RecentFiles<CR>
-nnoremap <leader>x :action CloseContent<CR>
+""nnoremap <leader>s :action SaveAll<CR>
+""nnoremap <leader>f :action FindInPath<CR>
+""nnoremap <leader>p :action GotoFile<CR>
+""nnoremap <leader>o :action GotoAction<CR>
+""nnoremap <leader>b :action RecentFiles<CR>
+""nnoremap <leader>x :action CloseContent<CR>
 nnoremap <leader>v :action SplitVertically<CR>
 nnoremap <leader>" :action SplitHorizontally<CR>
 
@@ -72,7 +73,7 @@ noremap <Space>tf mm`m:action GotoFile<CR>
 noremap <Space>tt mm`m:action GotoTest<CR>
 noremap <Space>tc mm`m:action GotoClass<CR>
 noremap <Space>tp mm`m:action FindInPath<CR>
-noremap <Space>ne mm`m:action GotoNextError<CR>
+#noremap <Space>ne mm`m:action GotoNextError<CR>
 #noremap <Space>pe mm`m:action GotoPreviousError<CR>
 noremap <Space>gs mm`m:action GotoSuperMethod<CR>
 noremap <Space>gi mm`m:action GotoImplementation<CR>
@@ -132,6 +133,7 @@ noremap <Space>ha :action HideAllWindows<CR>
 noremap <Space><Space> :action HideAllWindows<CR>
 noremap <Space>si :action SelectInProjectView<CR>
 noremap <Space>eb :action EditBreakpoint<CR>
+noremap <Space>me :action MaximizeEditorInSplit<CR>
 
 """"""""""""""""""""""""""""""""""""""Information""""""""""""""""""""""""""""""""""""""
 noremap <Space>ed :action ShowErrorDescription<CR>

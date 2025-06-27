@@ -209,8 +209,8 @@ vim.opt.timeoutlen = 1000
 
 require("keybindings")
 --require("commands")
---require("lsp_setup")
---require("cmp_setup")
+require("lsp_setup")
+require("cmp_setup")
 --require("tex_setup")
 --require("auto_cmds")
 --require("luasnip_setup")

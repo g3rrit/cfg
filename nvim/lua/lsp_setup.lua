@@ -88,6 +88,18 @@ lspconfig.pylsp.setup({
     }
 })
 
+
+-- Ruby (Solargraph)
+lspconfig.solargraph.setup{
+  settings = {
+    solargraph = {
+      commandPath = '/Users/prossger/.gem/ruby/3.3.6/bin/solargraph',
+      diagnostics = true,
+      completion = true
+    }
+  },
+}
+
 -- Scala
 
 -- We don't use lspconfig but the nvim-metals plugin instead.

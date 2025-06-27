@@ -83,6 +83,9 @@
     l4 = log -4
     l5 = log -5
 
+    # just commit messages
+    clog = log --format='%s'
+
     # Diff with meld
     mdiff = difftool -t meld --dir-diff
 

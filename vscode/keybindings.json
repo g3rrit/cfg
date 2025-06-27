@@ -28,7 +28,8 @@
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
 
-    // Search keybindings
+    // Search keybindings 
+    /*
     {
         "key" : "ctrl+e",
         "command" : "toggleSearchCaseSensitive",
@@ -44,6 +45,7 @@
         "command" : "toggleSearchWholeWord",
         "when" : "sideBarFocus"
     },
+    */
 
     // kill windows
     {
@@ -63,9 +65,8 @@
 
     // Vim leader keybindings out of editor
     {
-        "key" : "space f",
+        "key" : "ctrl+f",
         "command" : "workbench.action.findInFiles",
-        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space b",
@@ -73,9 +74,8 @@
         "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space r",
+        "key" : "ctrl+r",
         "command" : "workbench.action.replaceInFiles",
-        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "space t",
@@ -93,14 +93,12 @@
         "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space p",
-        "command" : "workbench.action.quickOpen",
-        "when": "!editorFocus && !inputFocus"
+        "key" : "cmd+p",
+        "command" : "workbench.action.showCommands",
     },
     {
-        "key" : "space o",
-        "command" : "workbench.action.showCommands",
-        "when": "!editorFocus && !inputFocus"
+        "key": "cmd+o",
+        "command": "workbench.action.quickOpen"
     },
     {
         "key": "space [",
@@ -4735,5 +4733,75 @@
         "key": "alt+\\",
         "command": "-editor.action.inlineSuggest.trigger",
         "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-notebook.find",
+        "when": "notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.interactive' || notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-settings.action.search",
+        "when": "inSettingsEditor"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-commentsFocusFilter",
+        "when": "focusedView == 'workbench.panel.comments'"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-editor.action.extensioneditor.showfind",
+        "when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-editor.action.webvieweditor.showFind",
+        "when": "webviewFindWidgetEnabled && !editorFocus && activeEditor == 'WebviewEditor'"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-keybindings.editor.searchKeybindings",
+        "when": "inKeybindings"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-problems.action.focusFilter",
+        "when": "focusedView == 'workbench.panel.markers.view'"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-repl.action.filter",
+        "when": "inDebugRepl && textInputFocus"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.files.openFile",
+        "when": "false"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.files.openFolderViaWorkspace",
+        "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.files.openFileFolder",
+        "when": "isMacNative && openFolderWorkspaceSupport"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.files.openLocalFileFolder",
+        "when": "remoteFileDialogVisible"
     },
 ]

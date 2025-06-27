@@ -79,17 +79,15 @@ vim.opt.clipboard:append("unnamedplus")
 
 -- VSCode specific keybindings
 
-vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)
-
 --
 vim.keymap.set("n", "<space>t", ":call VSCodeNotify('workbench.action.terminal.focus', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>f", ":call VSCodeNotify('workbench.action.findInFiles', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>r", ":call VSCodeNotify('workbench.action.replaceInFiles', 1)<CR>", default_opts)
+vim.keymap.set("n", "<C-f>", ":call VSCodeNotify('workbench.action.findInFiles', 1)<CR>", default_opts)
+vim.keymap.set("n", "<C-r>", ":call VSCodeNotify('workbench.action.replaceInFiles', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>n", ":call VSCodeNotify('search.action.focusNextSearchResult', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>N", ":call VSCodeNotify('search.action.focusPreviousSearchResult', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>p", ":call VSCodeNotify('workbench.action.quickOpen', 1)<CR>", default_opts)
+--vim.keymap.set("n", "<space>p", ":call VSCodeNotify('workbench.action.quickOpen', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>b", ":call VSCodeNotify('workbench.action.quickOpen', 1)<CR>", default_opts)
-vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)
+-- vim.keymap.set("n", "<space>o", ":call VSCodeNotify('workbench.action.showCommands', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>[", ":call VSCodeNotify('workbench.action.showAllSymbols', 1)<CR>", default_opts)
 vim.keymap.set("n", "<space>s", ":call VSCodeNotify('workbench.action.files.save', 1)<CR>", default_opts)
 
