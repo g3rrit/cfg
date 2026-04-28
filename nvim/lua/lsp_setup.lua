@@ -104,6 +104,7 @@ lspconfig.solargraph.setup{
 
 -- We don't use lspconfig but the nvim-metals plugin instead.
 -- An example configuration can be found here: https://github.com/scalameta/nvim-metals/discussions/39
+--[[
 local metals_config = require("metals").bare_config()
 
 -- Example of settings
@@ -131,3 +132,4 @@ api.nvim_create_autocmd("FileType", {
     end,
     group = nvim_metals_group,
 })
+--]]

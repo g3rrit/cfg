@@ -13,37 +13,37 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'neovim/nvim-lspconfig'
+-- Plug 'neovim/nvim-lspconfig'
 
 -- Nerdtree
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+-- Plug 'preservim/nerdtree'
+-- Plug 'jistr/vim-nerdtree-tabs'
 
 -- Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 
 -- Git
-Plug 'tpope/vim-fugitive'
+-- Plug 'tpope/vim-fugitive'
 
 -- Autocompletion
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+-- Plug 'hrsh7th/cmp-nvim-lsp'
+-- Plug 'hrsh7th/cmp-buffer'
+-- Plug 'hrsh7th/cmp-path'
+-- Plug 'hrsh7th/cmp-cmdline'
+-- Plug 'hrsh7th/nvim-cmp'
+-- Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
 -- Plug 'hrsh7th/cmp-vsnip'
 -- Plug 'hrsh7th/vim-vsnip'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
+-- Plug 'L3MON4D3/LuaSnip'
+-- Plug 'saadparwaiz1/cmp_luasnip'
 
 -- Utils
 Plug 'nvim-lua/plenary.nvim'
 
 -- Scala LSP
-Plug('scalameta/nvim-metals', { ['requires'] = { "nvim-lua/plenary.nvim" }})
+-- Plug('scalameta/nvim-metals', { ['requires'] = { "nvim-lua/plenary.nvim" }})
 
 -- Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -55,16 +55,16 @@ Plug 'ap/vim-css-color'
 Plug 'frazrepo/vim-rainbow'
 
 -- Latex
-Plug 'lervag/vimtex'
+-- Plug 'lervag/vimtex'
 
 -- Debug Adapter
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
+-- Plug 'mfussenegger/nvim-dap'
+-- Plug 'rcarriga/nvim-dap-ui'
 
 -- ChatGPT
-Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'jackMort/ChatGPT.nvim'
+-- Plug 'MunifTanjim/nui.nvim'
+-- Plug 'nvim-telescope/telescope.nvim'
+-- Plug 'jackMort/ChatGPT.nvim'
 
 vim.call('plug#end')
 --------------------
@@ -209,8 +209,8 @@ vim.opt.timeoutlen = 1000
 
 require("keybindings")
 --require("commands")
-require("lsp_setup")
-require("cmp_setup")
+-- require("lsp_setup")
+-- require("cmp_setup")
 --require("tex_setup")
 --require("auto_cmds")
 --require("luasnip_setup")
