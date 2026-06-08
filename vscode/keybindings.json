@@ -50,15 +50,6 @@
     // kill windows
     {
         "key" : "ctrl+x",
-        "command" : "workbench.action.toggleSidebarVisibility",
-    },
-    {
-        "key" : "ctrl+x",
-        "command": "workbench.action.togglePanel",
-        "when" : "panelFocus"
-    },
-    {
-        "key" : "ctrl+x",
         "command" : "workbench.action.closeActiveEditor",
         "when" : "editorFocus"
     },
@@ -69,28 +60,27 @@
         "command" : "workbench.action.findInFiles",
     },
     {
-        "key" : "space b",
+        "key" : "cmd+b",
         "command" : "workbench.action.quickOpenRecent",
-        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "ctrl+r",
         "command" : "workbench.action.replaceInFiles",
     },
+    /*
     {
-        "key" : "space t",
+        "key" : "cmd+t",
         "command" : "workbench.action.terminal.focus",
-        "when": "!editorFocus && !inputFocus && !inputBoxFocus && !searchInputBoxFocus && !textInputFocus"
+        "when": "!terminalFocus"
     },
+    */
     {
-        "key" : "space n",
+        "key" : "cmd+n",
         "command" : "search.action.focusNextSearchResult",
-        "when": "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space shift+n",
+        "key" : "cmd+shift+n",
         "command" : "search.action.focusPreviousSearchResult",
-        "when": "!editorFocus && !inputFocus"
     },
     {
         "key" : "cmd+p",
@@ -101,21 +91,22 @@
         "command": "workbench.action.quickOpen"
     },
     {
-        "key": "space [",
+        "key": "cmd+[",
         "command": "workbench.action.showAllSymbols",
         "when" : "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space x s",
+        "key" : "cmd+s",
         "command" : "workbench.action.toggleSidebarVisibility",
-        "when" : "!editorFocus && !inputFocus"
     },
     {
-        "key" : "space x t",
+        "key" : "cmd+t",
         "command": "workbench.action.togglePanel",
-        "when" : "!editorFocus && !inputFocus"
     },
-
+    {
+        "key": "cmd+a",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
 
     // Escape
     {
@@ -131,72 +122,67 @@
 
     // Select next/previous with vim keybindings
     {
-        "key": "alt+j",
+        "key": "ctrl+j",
         "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
         "when": "inEditorsPicker && inQuickOpen"
     },
     {
-        "key": "alt+j",
+        "key": "ctrl+j",
         "command": "workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "alt+j",
-        "command": "workbench.action.quickOpenNavigateNextInFilePicker",
-        "when": "inFilesPicker && inQuickOpen"
-    },
-    {
-        "key": "alt+j",
+        "key": "ctrl+j",
         "command": "workbench.action.quickOpenNavigateNextInRecentFilesPicker",
         "when": "inQuickOpen && inRecentFilesPicker"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
         "when": "inEditorsPicker && inQuickOpen"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker",
         "when": "inQuickOpen && inRecentFilesPicker"
     },
     {
-        "key": "alt+j",
+        "key": "ctrl+j",
         "command": "search.focus.nextInputBox",
         "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "search.focus.previousInputBox",
         "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
     },
     {
-        "key": "alt+j",
+        "key": "ctrl+j",
         "command": "selectNextSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "alt+j",
+        "key": "ctrl+j",
         "command": "showNextParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+k",
         "command": "-showPrevParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
     },
@@ -4803,5 +4789,9 @@
         "key": "cmd+o",
         "command": "-workbench.action.files.openLocalFileFolder",
         "when": "remoteFileDialogVisible"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "-workbench.action.toggleAuxiliaryBar"
     },
 ]
